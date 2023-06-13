@@ -12,7 +12,9 @@
                </svg>
             github
             </button>
-            <button type="button" class="btn btn-outline-secondary btn px-4">Secondary link</button>
+            <button type="button" class="btn btn-outline-secondary btn px-4">
+               Secondary link
+            </button>
          </div>
       </div>
    </div>
