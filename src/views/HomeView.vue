@@ -2,10 +2,11 @@
 <main class="text-center">
    <div class="px-4 py-5 my-5 text-center">
       <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-      <h1 class="display-5 fw-bold text-body-emphasis">Diez.dev</h1>
+      <h1 class="display-5 fw-bold text-body-emphasis mb-0">Diez.dev</h1>
+      <p class="mt-0">by Derian Escalante</p>
       <div class="col-lg-6 mx-auto">
          <p class="lead mb-4">
-            This is un example of all the projects
+            This is un example of all the projects, click the box to redirect
          <!-- Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins. -->
          </p>
          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
