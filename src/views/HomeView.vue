@@ -24,39 +24,48 @@
             </div>
          </div>
       </div>
+
       <div class="d-flex flex-row align-items-center justify-content-between g-5 mb-2">
          <h4>Case studies</h4>
          <p>View all</p>
       </div>
+
       <div class="row row-cols-3">
          <div class="card p-0" v-for="card in studies">
-           <div class="card-body">
-             <h6 class="card-subtitle mb-2 text-body-secondary">JS</h6>
-             <h5 class="card-title">{{card.name}}</h5>
-             <p class="card-text">
-               Some quick example text to build on the card title and make up the bulk of the card's content.
-             </p>
-           </div>
-           <div class="card-footer text-body-secondary text-end">
-                <a href="#" class="card-link">see more</a>
-             </div>
+            <div class="card-body"
+                    :style="{ 
+                     'background': `linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%), url(${binaryThree})`,
+                     'background-position': 'left center',
+                     'background-size': 'contain',
+                     'background-repeat': 'no-repeat'
+                  }">
+               <h6 class="card-subtitle mb-2 text-body-secondary">{{card.lang}}</h6>
+               <h5 class="card-title">{{card.name}}</h5>
+               <p class="card-text">
+                  Some quick example text to build on the card title and make up the bulk of the card's content.
+               </p>
+            </div>
+            <div class="card-footer text-body-secondary text-end">
+               <a href="#" class="card-link">see more</a>
+            </div>
          </div>
       </div>
-  </div>
+
+   </div>
 </main>
 </template>
 
+<script setup>
+import binaryThree from '@/assets/images/binary_three.png'
+</script>
 <script>
 export default{
    data(){
       return {
          studies: [
-            { name: 'Binary three' }
+            { name: 'Binary three', lang: 'JS' }
          ]
       }
    }
 }
-</script>
-<script setup>
-import binaryThree from '@/assets/images/binary_three.png'
 </script>
