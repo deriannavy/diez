@@ -27,26 +27,35 @@
 
       <div class="d-flex flex-row align-items-center justify-content-between g-5 mb-2">
          <h4>Case studies</h4>
-         <p>View all</p>
+
+         <div class="dropdown">
+           <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+             View all
+           </button>
+           <ul class="dropdown-menu dropdown-menu">
+             <li><a class="dropdown-item" href="#">JS</a></li>
+             <li><a class="dropdown-item" href="#">Python</a></li>
+           </ul>
+         </div>
+         
       </div>
 
       <div class="row row-cols-3">
          <div class="card p-0" v-for="card in studies">
-            <div class="card-body"
-                    :style="{ 
-                     'background': `linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%), url(${binaryThree})`,
-                     'background-position': 'left center',
-                     'background-size': 'contain',
-                     'background-repeat': 'no-repeat'
-                  }">
+            <div class="card-body">
                <h6 class="card-subtitle mb-2 text-body-secondary">{{card.lang}}</h6>
                <h5 class="card-title">{{card.name}}</h5>
-               <p class="card-text">
+               <p class="card-text col-8">
                   Some quick example text to build on the card title and make up the bulk of the card's content.
                </p>
             </div>
-            <div class="card-footer text-body-secondary text-end">
-               <a href="#" class="card-link">see more</a>
+            <div class="card-footer text-body-secondary text-end p-0">
+               <a href="#" class="card-link btn text-primary">
+                  <span class="me-1">see more</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                  </svg>
+               </a>
             </div>
          </div>
       </div>
