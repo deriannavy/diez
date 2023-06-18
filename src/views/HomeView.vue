@@ -1,7 +1,7 @@
 <template>
-<main class="text-center">
+<main>
    <div class="container col-xxl-8 px-4 py-5">
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5 text-center">
          <div class="col-10 col-sm-8 col-lg-6">
             <img src="https://getbootstrap.com/docs/5.3/examples/heroes/bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
          </div>
@@ -23,10 +23,35 @@
             </div>
          </div>
       </div>
+      <div class="d-flex flex-row align-items-center justify-content-between g-5 mb-2">
+         <h4>Case studies</h4>
+         <p>View all</p>
+      </div>
+      <div class="row row-cols-3">
+         <div class="card p-0" v-for="card in studies">
+           <div class="card-body">
+             <h6 class="card-subtitle mb-2 text-body-secondary">JS</h6>
+             <h5 class="card-title">{{card.name}}</h5>
+             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+           </div>
+           <div class="card-footer text-body-secondary">
+                <a href="#" class="card-link">show</a>
+                <a href="#" class="card-link">code</a>
+             </div>
+         </div>
+      </div>
   </div>
 </main>
 </template>
 
-<script setup>
-
+<script>
+export default{
+   data(){
+      return {
+         studies: [
+            { name: 'Binary three' }
+         ]
+      }
+   }
+}
 </script>
