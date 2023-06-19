@@ -40,22 +40,22 @@
          
       </div>
 
-      <div class="row row-cols-3">
-         <div class="card p-0" v-for="card in studies">
-            <div class="card-body">
-               <h6 class="card-subtitle mb-2 text-body-secondary">{{card.lang}}</h6>
-               <h5 class="card-title">{{card.name}}</h5>
-               <p class="card-text col-8">
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-               </p>
-            </div>
-            <div class="card-footer text-body-secondary text-end p-0">
-               <a href="#" class="card-link btn text-primary">
-                  <span class="me-1">see more</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-                  </svg>
-               </a>
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 g-3">
+         <div class="col" v-for="card in studies">
+            <div class="card p-0">
+               <div class="card-body">
+                  <h6 class="card-subtitle mb-2 text-body-secondary">{{card.lang}}</h6>
+                  <h5 class="card-title">{{card.name}}</h5>
+                  <p class="card-text col-8">{{card.description}}</p>
+               </div>
+               <div class="card-footer text-body-secondary text-end p-0">
+                  <router-link :to="card.url" class="card-link btn text-primary">
+                     <span class="me-1">see more</span>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                       <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+                     </svg>
+                  </router-link>
+               </div>
             </div>
          </div>
       </div>
@@ -72,7 +72,9 @@ export default{
    data(){
       return {
          studies: [
-            { name: 'Binary three', lang: 'JS' }
+            { name: 'Binary three', lang: 'Javascript', url: 'binary-three', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' },
+            { name: 'Binary three', lang: 'Javascript', url: 'binary-three', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' },
+            { name: 'Binary three', lang: 'Javascript', url: 'binary-three', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' }
          ]
       }
    }
