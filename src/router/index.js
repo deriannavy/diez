@@ -9,9 +9,9 @@ const router = createRouter({
          component: () => import('../views/HomeView.vue')
       },
       {
-         path: '/binary-three',
-         name: 'BinaryThree',
-         component: () => import('../views/BinaryThree.vue')
+         path: '/case/binary-tree',
+         name: 'BinaryTree',
+         component: () => import('../views/BinaryTree.vue')
       }
    ]
 })

@@ -1,3 +1,3 @@
 <template>
-	<h1>ansxaxsasxs</h1>
+	<h1>Binary tree</h1>
 </template>

@@ -3,8 +3,8 @@
    <div class="container col-xxl-10 px-4 py-5">
       <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
          <div class="col-10 col-sm-8 col-lg-6 text-center">
-            <img :src="binaryThree" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" height="auto" loading="lazy">
-            <a href="#" class="btn btn-sm btn-outline-secondary">Binary three</a>
+            <img :src="binaryTree" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" height="auto" loading="lazy">
+            <a href="#" class="btn btn-sm btn-outline-secondary">Binary tree</a>
          </div>
          <div class="col-lg-6 text-start">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Diez.dev</h1>
@@ -33,7 +33,7 @@
              View all
            </button>
            <ul class="dropdown-menu dropdown-menu">
-             <li><a class="dropdown-item" href="#">JS</a></li>
+             <li><a class="dropdown-item" href="#">Javascript</a></li>
              <li><a class="dropdown-item" href="#">Python</a></li>
            </ul>
          </div>
@@ -49,8 +49,8 @@
                   <p class="card-text col-8">{{card.description}}</p>
                </div>
                <div class="card-footer text-body-secondary text-end p-0">
-                  <router-link :to="card.url" class="card-link btn text-primary">
-                     <span class="me-1">see more</span>
+                  <router-link :to="'/case/' + card.url" class="card-link btn text-primary">
+                     <span class="me-1">view case study</span>
                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
                      </svg>
@@ -65,17 +65,97 @@
 </template>
 
 <script setup>
-import binaryThree from '@/assets/images/binary_three.png'
+import binaryTree from '@/assets/images/binary_tree.png'
 </script>
 <script>
 export default{
    data(){
       return {
          studies: [
-            { name: 'Binary three', lang: 'Javascript', url: 'binary-three', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' },
-            { name: 'Binary three', lang: 'Javascript', url: 'binary-three', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' },
-            { name: 'Binary three', lang: 'Javascript', url: 'binary-three', description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' }
-         ]
+            {  name: 'Binary tree', 
+               lang: 'Javascript', 
+               url: 'binary-tree', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Breadth first search', 
+               lang: 'Javascript', 
+               url: 'breadth-first-search', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Lexicographic order', 
+               lang: 'Javascript', 
+               url: 'lexicographic-order', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            {  name: 'Maze gen',
+               lang: 'Javascript', 
+               url: 'maze-gen', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Multiperceptron', 
+               lang: 'Javascript', 
+               url: 'multiperceptron', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Neuro flappy',
+               lang: 'Javascript', 
+               url: 'neuro-flappy', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Pathfinder',
+               lang: 'Javascript', 
+               url: 'pathfinder', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Neuro flappy',
+               lang: 'Javascript', 
+               url: 'neuro-flappy', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Pathfinder',
+               lang: 'Javascript', 
+               url: 'pathfinder', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Perceptron',
+               lang: 'Javascript', 
+               url: 'perceptron', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Pool selection',
+               lang: 'Javascript', 
+               url: 'pool-selection', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Salesperson lexicographic',
+               lang: 'Javascript', 
+               url: 'salesperson-lexicographic', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Smart rocket',
+               lang: 'Javascript', 
+               url: 'smart-rocket', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Traveling salesperson',
+               lang: 'Javascript', 
+               url: 'traveling-salesperson', 
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            }
+            
+         ],
       }
    }
 }
