@@ -50,11 +50,22 @@
                   <h5 class="card-title">{{card.name}}</h5>
                   <p class="card-text col-8">{{card.description}}</p>
 
+                  <div class="d-flex flex-row align-items-center">
+                     <div  v-for="(img, index) in card.stack"
+                           :style="{
+                              'background-image': `url(${img.image})`,
+                              'height': img.h,
+                              'width': img.w,
+                              'background-position': 'center',
+                              'background-size': 'contain',
+                              'background-repeat': 'no-repeat',
+                              'margin-right': '20px'
+                           }">
+
+                     </div>
+                  </div>
                </div>
                <div class="card-footer text-body-secondary p-0 d-flex d-row justify-content-between align-items-center">
-                  <div class="ms-2">
-                     <img v-for="img in card.stack" :src="img" width="20">
-                  </div>
                   <router-link :to="'/case/' + card.url" class="card-link btn text-primary">
                      <span class="me-1">view case study</span>
                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
@@ -74,6 +85,8 @@
 import binaryTree from '@/assets/images/binary_tree.png';
 // Stack image
 import jsimage from '@/assets/images/javascript.png';
+import pyimage from '@/assets/images/python.png';
+import colabimage from '@/assets/images/colab.png';
 </script>
 <script>
 export default{
@@ -84,97 +97,104 @@ export default{
                name: 'Binary tree',
                lang: 'Javascript',
                url: 'binary-tree',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Breadth first search',
                lang: 'Javascript',
                url: 'breadth-first-search',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Lexicographic order',
                lang: 'Javascript',
                url: 'lexicographic-order',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             {  name: 'Maze gen',
                lang: 'Javascript',
                url: 'maze-gen',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Multiperceptron', 
                lang: 'Javascript', 
                url: 'multiperceptron',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Neuro flappy',
                lang: 'Javascript', 
                url: 'neuro-flappy',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pathfinder',
                lang: 'Javascript', 
                url: 'pathfinder',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Neuro flappy',
                lang: 'Javascript', 
                url: 'neuro-flappy',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pathfinder',
                lang: 'Javascript', 
                url: 'pathfinder',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Perceptron',
                lang: 'Javascript', 
                url: 'perceptron',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pool selection',
                lang: 'Javascript', 
                url: 'pool-selection',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Salesperson lexicographic',
                lang: 'Javascript', 
                url: 'salesperson-lexicographic',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Smart rocket',
                lang: 'Javascript', 
                url: 'smart-rocket',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Traveling salesperson',
                lang: 'Javascript', 
                url: 'traveling-salesperson',
-               stack: [jsimage],
+               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Logistic regression',
+               lang: 'Python',
+               url: 'traveling-salesperson',
+               stack: [{image:colabimage, w: '40px', h: '30px'}, {image:pyimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             }
             
