@@ -53,7 +53,7 @@
                </div>
                <div class="card-footer text-body-secondary p-0 d-flex d-row justify-content-between align-items-center">
                   <div class="ms-2">
-                     <img :src="javascriptimage" width="20">   
+                     <img v-for="img in card.stack" :src="img" width="20">
                   </div>
                   <router-link :to="'/case/' + card.url" class="card-link btn text-primary">
                      <span class="me-1">view case study</span>
@@ -72,107 +72,109 @@
 
 <script setup>
 import binaryTree from '@/assets/images/binary_tree.png';
-import javascriptimage from '@/assets/images/javascript.png';
+// Stack image
+import jsimage from '@/assets/images/javascript.png';
 </script>
 <script>
 export default{
    data(){
       return {
          studies: [
-            {  name: 'Binary tree',
+            {  
+               name: 'Binary tree',
                lang: 'Javascript',
                url: 'binary-tree',
-               img: 'javascript.png',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Breadth first search',
                lang: 'Javascript',
                url: 'breadth-first-search',
-               img: 'javascript.png',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Lexicographic order',
                lang: 'Javascript',
                url: 'lexicographic-order',
-               img: 'javascript.png',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             {  name: 'Maze gen',
                lang: 'Javascript',
                url: 'maze-gen',
-               img: 'javascript.png',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Multiperceptron', 
                lang: 'Javascript', 
-               url: 'multiperceptron', 
-               img: 'javascript.png',
+               url: 'multiperceptron',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Neuro flappy',
                lang: 'Javascript', 
-               url: 'neuro-flappy', 
-               img: 'javascript.png',
+               url: 'neuro-flappy',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pathfinder',
                lang: 'Javascript', 
-               url: 'pathfinder', 
-               img: 'javascript.png',
+               url: 'pathfinder',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Neuro flappy',
                lang: 'Javascript', 
-               url: 'neuro-flappy', 
-               img: 'javascript.png',
+               url: 'neuro-flappy',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pathfinder',
                lang: 'Javascript', 
-               url: 'pathfinder', 
-               img: 'javascript.png',
+               url: 'pathfinder',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Perceptron',
                lang: 'Javascript', 
-               url: 'perceptron', 
-               img: 'javascript.png',
+               url: 'perceptron',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pool selection',
                lang: 'Javascript', 
-               url: 'pool-selection', 
-               img: 'javascript.png',
+               url: 'pool-selection',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Salesperson lexicographic',
                lang: 'Javascript', 
-               url: 'salesperson-lexicographic', 
-               img: 'javascript.png',
+               url: 'salesperson-lexicographic',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Smart rocket',
                lang: 'Javascript', 
-               url: 'smart-rocket', 
-               img: 'javascript.png',
+               url: 'smart-rocket',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Traveling salesperson',
                lang: 'Javascript', 
-               url: 'traveling-salesperson', 
-               img: 'javascript.png',
+               url: 'traveling-salesperson',
+               stack: [jsimage],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             }
             
