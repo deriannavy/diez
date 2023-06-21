@@ -65,13 +65,24 @@
                      </div>
                   </div>
                </div>
-               <div class="card-footer text-body-secondary p-0 d-flex d-row justify-content-between align-items-center">
-                  <router-link :to="'/case/' + card.url" class="card-link btn text-primary">
+               <div class="card-footer text-body-secondary p-0 text-end">
+
+                  <router-link v-if="card.typeUrl == 'internal'" :to="card.url" class=" btn text-primary">
                      <span class="me-1">view case study</span>
                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
                      </svg>
                   </router-link>
+
+                  <a v-else-if="card.typeUrl == 'external'"
+                     :href="card.url">
+                     <span class="me-1">view case study</span>
+                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd" d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                     </svg>
+                  </a>
+
                </div>
             </div>
          </div>
@@ -96,104 +107,119 @@ export default{
             {  
                name: 'Binary tree',
                lang: 'Javascript',
-               url: 'binary-tree',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/binary-tree',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Breadth first search',
                lang: 'Javascript',
-               url: 'breadth-first-search',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/breadth-first-search',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Lexicographic order',
                lang: 'Javascript',
-               url: 'lexicographic-order',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/lexicographic-order',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             {  name: 'Maze gen',
                lang: 'Javascript',
-               url: 'maze-gen',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/maze-gen',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Multiperceptron', 
                lang: 'Javascript', 
-               url: 'multiperceptron',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/multiperceptron',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Neuro flappy',
                lang: 'Javascript', 
-               url: 'neuro-flappy',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/neuro-flappy',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pathfinder',
                lang: 'Javascript', 
-               url: 'pathfinder',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/pathfinder',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Neuro flappy',
                lang: 'Javascript', 
-               url: 'neuro-flappy',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/neuro-flappy',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pathfinder',
                lang: 'Javascript', 
-               url: 'pathfinder',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/pathfinder',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Perceptron',
                lang: 'Javascript', 
-               url: 'perceptron',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/perceptron',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Pool selection',
                lang: 'Javascript', 
-               url: 'pool-selection',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/pool-selection',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Salesperson lexicographic',
                lang: 'Javascript', 
-               url: 'salesperson-lexicographic',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/salesperson-lexicographic',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Smart rocket',
                lang: 'Javascript', 
-               url: 'smart-rocket',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/smart-rocket',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Traveling salesperson',
                lang: 'Javascript', 
-               url: 'traveling-salesperson',
-               stack: [{ image: jsimage, w: '30px', h: '30px'}],
+               url: '/case/traveling-salesperson',
+               typeUrl: 'internal',
+               stack: [{image: jsimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
                name: 'Logistic regression',
                lang: 'Python',
-               url: 'traveling-salesperson',
+               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               typeUrl: 'external',
                stack: [{image:colabimage, w: '40px', h: '30px'}, {image:pyimage, w: '30px', h: '30px'}],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             }
