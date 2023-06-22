@@ -50,20 +50,7 @@
                   <h5 class="card-title">{{card.name}}</h5>
                   <p class="card-text col-8">{{card.description}}</p>
 
-                  <div class="d-flex flex-row align-items-center">
-                     <div  v-for="(img, index) in card.stack"
-                           :style="{
-                              'background-image': `url(${img.image})`,
-                              'height': img.h,
-                              'width': img.w,
-                              'background-position': 'center',
-                              'background-size': 'contain',
-                              'background-repeat': 'no-repeat',
-                              'margin-right': '10px'
-                           }">
-
-                     </div>
-                  </div>
+                  <stack :stack="card.stack"/>
                </div>
                <div class="card-footer p-0 d-flex flex-row justify-content-end">
 
@@ -100,13 +87,12 @@
 
 <script setup>
 import binaryTree from '@/assets/images/binary_tree.png';
-// Stack image
-import jsimage from '@/assets/images/javascript.png';
-import pyimage from '@/assets/images/python.png';
-import colabimage from '@/assets/images/colab.png';
+// Components
+import stack from '@/components/general/stack.vue';
 </script>
 <script>
 export default{
+   components: { stack },
    data(){
       return {
          studies: [
@@ -115,7 +101,7 @@ export default{
                lang: 'Javascript',
                url: '/case/binary-tree',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -123,7 +109,7 @@ export default{
                lang: 'Javascript',
                url: '/case/breadth-first-search',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -131,14 +117,14 @@ export default{
                lang: 'Javascript',
                url: '/case/lexicographic-order',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             {  name: 'Maze gen',
                lang: 'Javascript',
                url: '/case/maze-gen',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -146,7 +132,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/multiperceptron',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -154,7 +140,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/neuro-flappy',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -162,7 +148,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/pathfinder',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -170,7 +156,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/neuro-flappy',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -178,7 +164,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/pathfinder',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -186,7 +172,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/perceptron',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -194,7 +180,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/pool-selection',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -202,7 +188,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/salesperson-lexicographic',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -210,7 +196,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/smart-rocket',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -218,7 +204,7 @@ export default{
                lang: 'Javascript', 
                url: '/case/traveling-salesperson',
                typeUrl: 'internal',
-               stack: [{image: jsimage, w: '30px', h: '30px'}],
+               stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -226,7 +212,7 @@ export default{
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
-               stack: [{image:colabimage, w: '40px', h: '30px'}, {image:pyimage, w: '30px', h: '30px'}],
+               stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             }
             
