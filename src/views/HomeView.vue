@@ -214,7 +214,64 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Multiclass logistic regression-',
+               lang: 'Python',
+               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               typeUrl: 'external',
+               stack: ['colab', 'python'],
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Neural network (movement prediction)-',
+               lang: 'Python',
+               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               typeUrl: 'external',
+               stack: ['colab', 'python'],
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Neural network (stock prediction)-',
+               lang: 'Python',
+               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               typeUrl: 'external',
+               stack: ['colab', 'python'],
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Text-in-image detection-',
+               lang: 'Python',
+               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               typeUrl: 'external',
+               stack: ['colab', 'python'],
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Plate and text detection-',
+               lang: 'Python',
+               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               typeUrl: 'external',
+               stack: ['colab', 'python'],
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Plate detection and recognition-',
+               lang: 'Python',
+               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               typeUrl: 'external',
+               stack: ['colab', 'python'],
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+            },
+            { 
+               name: 'Face detection and recognition-',
+               lang: 'Python',
+               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               typeUrl: 'external',
+               stack: ['colab', 'python'],
+               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             }
+            
             
          ],
       }
