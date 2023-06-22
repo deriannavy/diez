@@ -1,7 +1,7 @@
 <template>
 	<div class="d-flex flex-row align-items-center">
 	 
-	 <div  v-for="(tech, index) in fnGetStackTech(stack)"
+	 <div  v-for="(tech, index) in fnGetStackTech"
 	       :style="{
 	          'background-image': `url(${tech.image})`,
 	          'height': tech.h,
@@ -24,8 +24,16 @@ import pyimage from '@/assets/images/python.png';
 import colabimage from '@/assets/images/colab.png';
 </script>
 <script>
+
+
+
 export default{
-	props: ['stack'],
+	props: {
+		stack: {
+	   	required: true,
+	   	type: Array
+		}
+	},
 	data(){
 		return {
 			technologies: [
@@ -36,12 +44,12 @@ export default{
          ]
 		}
 	},
-	methods:{
-		fnGetStackTech(stack){
-			console.log(stack)
-			return this.technologies;
+	computed:{
+		fnGetStackTech(){
+			return this.technologies.filter(e => [...this.stack].includes(e.name));
 
 		}
 	}
 }
 </script>
+
