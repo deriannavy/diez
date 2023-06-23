@@ -29,13 +29,19 @@
          <h4>Case studies</h4>
 
          <div class="dropdown">
-           <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-             View all
-           </button>
-           <ul class="dropdown-menu dropdown-menu">
-             <li><a class="dropdown-item" href="#">Js</a></li>
-             <li><a class="dropdown-item" href="#">Py</a></li>
-           </ul>
+            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+               {{ dtFilter }}
+            </button>
+            <ul class="dropdown-menu dropdown-menu">
+               <li v-if="dtFilter != 'View all' ">
+                  <button @click="dtFilter = 'View all'" class="dropdown-item" href="#">View all</button>
+               </li>
+               <li v-for="tech in technologies">
+                  <button @click="dtFilter = tech.name" :class="['dropdown-item', {'active': dtFilter == tech.name}]" href="#">
+                     {{tech.name}}
+                  </button>
+               </li>
+            </ul>
          </div>
          
       </div>
@@ -50,7 +56,7 @@
                   <h5 class="card-title">{{card.name}}</h5>
                   <p class="card-text col-8">{{card.description}}</p>
 
-                  <stack :stack="card.stack"/>
+                  <stack :stack="card.stack" :technologies="technologies"/>
                </div>
                <div class="card-footer p-0 d-flex flex-row justify-content-end">
 
@@ -89,12 +95,24 @@
 import binaryTree from '@/assets/images/binary_tree.png';
 // Components
 import stack from '@/components/general/stack.vue';
+// Stack image
+import jsimage from '@/assets/images/javascript.png';
+import vuejsimage from '@/assets/images/vuejs.png';
+import pyimage from '@/assets/images/python.png';
+import colabimage from '@/assets/images/colab.png';
 </script>
 <script>
 export default{
    components: { stack },
    data(){
       return {
+         dtFilter: 'View all',
+         technologies: [
+            {id: 'js', name: 'Javascript', image: jsimage, w: '30px', h: '30px'},
+            {id: 'python', name: 'Python', image: pyimage, w: '30px', h: '30px'},
+            {id: 'vue', name: 'Vue', image: vuejsimage, w: '30px', h: '30px'},
+            {id: 'colab', name: 'Google Colab', image: colabimage, w: '40px', h: '30px'}
+         ],
          studies: [
             {  
                name: 'Binary tree',
@@ -216,7 +234,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
-               name: 'Multiclass logistic regression-',
+               name: 'Multiclass logistic regression',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
@@ -224,7 +242,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
-               name: 'Neural network (movement prediction)-',
+               name: 'Neural network (movement prediction)',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
@@ -232,7 +250,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
-               name: 'Neural network (stock prediction)-',
+               name: 'Neural network (stock prediction)',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
@@ -240,7 +258,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
-               name: 'Text-in-image detection-',
+               name: 'Text-in-image detection',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
@@ -248,7 +266,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
-               name: 'Plate and text detection-',
+               name: 'Plate and text detection',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
@@ -256,7 +274,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
-               name: 'Plate detection and recognition-',
+               name: 'Plate detection and recognition',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
@@ -264,16 +282,14 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
-               name: 'Face detection and recognition-',
+               name: 'Face detection and recognition',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             }
-            
-            
-         ],
+         ]
       }
    }
 }

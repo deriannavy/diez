@@ -1,7 +1,7 @@
 <template>
 	<div class="d-flex flex-row align-items-center">
 	 
-	 <div  v-for="(tech, index) in fnGetStackTech"
+	 <div  v-for="tech in fnGetStackTech"
 	       :style="{
 	          'background-image': `url(${tech.image})`,
 	          'height': tech.h,
@@ -16,13 +16,6 @@
 	</div>
 </template>
 
-<script setup>
-// Stack image
-import jsimage from '@/assets/images/javascript.png';
-import vuejsimage from '@/assets/images/vuejs.png';
-import pyimage from '@/assets/images/python.png';
-import colabimage from '@/assets/images/colab.png';
-</script>
 <script>
 
 
@@ -32,21 +25,18 @@ export default{
 		stack: {
 	   	required: true,
 	   	type: Array
-		}
-	},
-	data(){
-		return {
-			technologies: [
-            {name: 'vue', image: vuejsimage, w: '30px', h: '30px'},
-            {name: 'js', image: jsimage, w: '30px', h: '30px'},
-            {name: 'colab', image: colabimage, w: '40px', h: '30px'}, 
-            {name: 'python', image: pyimage, w: '30px', h: '30px'}
-         ]
+		},
+		technologies: {
+			required: true,
+			type: Array
 		}
 	},
 	computed:{
 		fnGetStackTech(){
-			return this.technologies.filter(e => [...this.stack].includes(e.name));
+
+			const techs = [...this.technologies];
+
+			return techs.filter(e => [...this.stack].includes(e.id));
 
 		}
 	}
