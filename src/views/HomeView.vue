@@ -26,18 +26,23 @@
       </div>
 
       <div class="d-flex flex-row align-items-center justify-content-between g-5 mb-2">
+         <Transition name="slide-fade">
+           <p v-if="dtFilter.id == 'view_all'">hello</p>
+         </Transition>
          <h4>Case studies</h4>
 
          <div class="dropdown">
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-               {{ dtFilter }}
+               {{ dtFilter.name }}
             </button>
             <ul class="dropdown-menu dropdown-menu">
-               <li v-if="dtFilter != 'View all' ">
-                  <button @click="dtFilter = 'View all'" class="dropdown-item" href="#">View all</button>
+               <li v-if="dtFilter.id != 'view_all'">
+                  <button @click="dtFilter = { name: 'View all', id: 'view_all' }" class="dropdown-item" href="#">
+                     View all
+                  </button>
                </li>
                <li v-for="tech in technologies">
-                  <button @click="dtFilter = tech.name" :class="['dropdown-item', {'active': dtFilter == tech.name}]" href="#">
+                  <button @click="dtFilter = tech" :class="['dropdown-item', {'active': dtFilter.id == tech.id}]" href="#">
                      {{tech.name}}
                   </button>
                </li>
@@ -46,8 +51,11 @@
          
       </div>
 
-      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 g-3">
-         <div class="col" v-for="card in studies">
+      <TransitionGroup class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 g-3" 
+                       name="fade"
+                       tag="span">
+
+         <div class="col lcasaslkm" v-for="(card, index) in cpStudiesFiltered" :id="index" :key="index">
             <div class="card p-0">
                <div class="card-body">
                   <h6 class="card-subtitle mb-2 text-body-secondary">
@@ -85,7 +93,8 @@
                </div>
             </div>
          </div>
-      </div>
+
+      </TransitionGroup>
 
    </div>
 </main>
@@ -106,7 +115,7 @@ export default{
    components: { stack },
    data(){
       return {
-         dtFilter: 'View all',
+         dtFilter: { name: 'View all', id: 'view_all' },
          technologies: [
             {id: 'js', name: 'Javascript', image: jsimage, w: '30px', h: '30px'},
             {id: 'python', name: 'Python', image: pyimage, w: '30px', h: '30px'},
@@ -291,6 +300,58 @@ export default{
             }
          ]
       }
+   },
+   computed: {
+      cpStudiesFiltered() {
+
+         if(this.dtFilter.id == "view_all"){return this.studies; }
+
+         return this.studies.filter(e => e.stack.includes(this.dtFilter.id));
+      }
    }
 }
 </script>
+
+
+<style>
+.list-enter-active,
+.list-leave-active {
+  transition: all 5s ease;
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.lcasaslkm{
+   transition: opacity 5s ease;
+   opacity: 1;  
+}
+</style>
