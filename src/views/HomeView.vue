@@ -1,29 +1,31 @@
 <template>
 <main>
    <div class="container col-xxl-10 px-4 py-5">
-      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-         <div class="col-10 col-sm-8 col-lg-6 d-flex flex-column align-items-center">
-            <img :src="binaryTree" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" height="auto" loading="lazy">
-            <study-link :study="dtHeroCard"/>
-         </div>
-         <div class="col-lg-6 text-start">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Diez.dev</h1>
-            <p class="lead">
-            This is un example of all the projects, click the box to redirect
-            </p>
-            <div class="d-grid gap-2 d-md-flex">
-               <a class="btn btn-primary btn px-4 gap-3" href="https://github.com/deriannavy">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 20 20">
-                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                  </svg>
-               Github
-               </a>
-               <a class="btn btn-outline-secondary btn px-4" href="https://github.com/deriannavy/diez">
-                  this Repository
-               </a>
+      <Transition name="fade" tag="div">
+         <div class="row flex-lg-row-reverse align-items-center g-5 py-5" v-if="!dtSearchFilter">
+            <div class="col-10 col-sm-8 col-lg-6 d-flex flex-column align-items-center">
+               <img :src="binaryTree" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" height="auto" loading="lazy">
+               <study-link :study="dtHeroCard"/>
+            </div>
+            <div class="col-lg-6 text-start">
+               <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Diez.dev</h1>
+               <p class="lead">
+               This is un example of all the projects, click the box to redirect
+               </p>
+               <div class="d-grid gap-2 d-md-flex">
+                  <a class="btn btn-primary btn px-4 gap-3" href="https://github.com/deriannavy">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github" viewBox="0 0 20 20">
+                       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                     </svg>
+                  Github
+                  </a>
+                  <a class="btn btn-outline-secondary btn px-4" href="https://github.com/deriannavy/diez">
+                     this Repository
+                  </a>
+               </div>
             </div>
          </div>
-      </div>
+      </Transition>
 
       <div class="d-flex flex-row align-items-center justify-content-between g-5 mb-2">
          <h4>Case studies</h4>
@@ -48,11 +50,26 @@
          
       </div>
 
+      <div class="col col-8 col-md-4 mb-3">
+         <div class="input-group">
+           <span class="input-group-text" id="search-studies">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+               </svg>
+           </span>
+           <input type="text" class="form-control" 
+                  placeholder="Search" 
+                  aria-label="search" 
+                  aria-describedby="search-studies"
+                  v-model="dtSearchFilter">
+         </div>
+      </div>
+
       <TransitionGroup class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 g-3"
                        name="slide-fade"
                        tag="div">
          <div class="col" 
-              v-for="(card, index) in cpStudiesFiltered" 
+              v-for="(card, index) in cpStudiesSearchFiltered" 
               :key="card.id"
               :style="`--slide-fade-time: ${250*index+250 < 3000 ? 250*index+250 : 3000 }ms`">
 
@@ -100,6 +117,7 @@ export default{
    data(){
       return {
          dtFilter: { name: 'View all', id: 'view_all' },
+         dtSearchFilter: '',
          dtHeroCard: {},
          technologies: [
             {id: 'js', name: 'Javascript', image: jsimage, width: '30px', height: '30px'},
@@ -304,6 +322,14 @@ export default{
          if(this.dtFilter.id == "view_all"){return this.studies; }
 
          return this.studies.filter(e => e.stack.includes(this.dtFilter.id));
+      },
+      cpStudiesSearchFiltered(){
+
+         if (!this.dtSearchFilter){ this.cpStudiesFiltered }
+
+         return this.cpStudiesFiltered.filter(
+            e => e.name.toLowerCase().includes(this.dtSearchFilter.toLowerCase())
+         )
       }
    }
 }
@@ -322,4 +348,16 @@ export default{
    transform: translateY(30px);
 }
 .slide-fade-leave-to { opacity: 0; }
+
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 250ms ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
 </style>
