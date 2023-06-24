@@ -26,9 +26,6 @@
       </div>
 
       <div class="d-flex flex-row align-items-center justify-content-between g-5 mb-2">
-         <Transition name="slide-fade">
-           <p v-if="dtFilter.id == 'view_all'">hello</p>
-         </Transition>
          <h4>Case studies</h4>
 
          <div class="dropdown">
@@ -51,11 +48,13 @@
          
       </div>
 
-      <TransitionGroup class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 g-3" 
-                       name="fade"
-                       tag="span">
-
-         <div class="col lcasaslkm" v-for="(card, index) in cpStudiesFiltered" :id="index" :key="index">
+      <TransitionGroup class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 g-3"
+                       name="slide-fade"
+                       tag="div">
+         <div class="col" 
+              v-for="(card, index) in cpStudiesFiltered" 
+              :key="card.id"
+              :style="`--slide-fade-time: ${250*index+250 < 3000 ? 250*index+250 : 3000 }ms`">
             <div class="card p-0">
                <div class="card-body">
                   <h6 class="card-subtitle mb-2 text-body-secondary">
@@ -117,13 +116,14 @@ export default{
       return {
          dtFilter: { name: 'View all', id: 'view_all' },
          technologies: [
-            {id: 'js', name: 'Javascript', image: jsimage, w: '30px', h: '30px'},
-            {id: 'python', name: 'Python', image: pyimage, w: '30px', h: '30px'},
-            {id: 'vue', name: 'Vue', image: vuejsimage, w: '30px', h: '30px'},
-            {id: 'colab', name: 'Google Colab', image: colabimage, w: '40px', h: '30px'}
+            {id: 'js', name: 'Javascript', image: jsimage, width: '30px', height: '30px'},
+            {id: 'python', name: 'Python', image: pyimage, width: '30px', height: '30px'},
+            {id: 'vue', name: 'Vue', image: vuejsimage, width: '30px', height: '30px'},
+            {id: 'colab', name: 'Google Colab', image: colabimage, width: '40px', height: '30px'}
          ],
          studies: [
             {  
+               id: 'binary_tree',
                name: 'Binary tree',
                lang: 'Javascript',
                url: '/case/binary-tree',
@@ -132,6 +132,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'breadth_first_search',
                name: 'Breadth first search',
                lang: 'Javascript',
                url: '/case/breadth-first-search',
@@ -140,6 +141,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'lexicographic_order',
                name: 'Lexicographic order',
                lang: 'Javascript',
                url: '/case/lexicographic-order',
@@ -147,7 +149,9 @@ export default{
                stack: ['vue', 'js'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
-            {  name: 'Maze gen',
+            {  
+               id: 'maze_gen',
+               name: 'Maze gen',
                lang: 'Javascript',
                url: '/case/maze-gen',
                typeUrl: 'internal',
@@ -155,6 +159,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'multiperceptron',
                name: 'Multiperceptron', 
                lang: 'Javascript', 
                url: '/case/multiperceptron',
@@ -163,6 +168,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'neuro_flappy',
                name: 'Neuro flappy',
                lang: 'Javascript', 
                url: '/case/neuro-flappy',
@@ -171,6 +177,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'pathfinder',
                name: 'Pathfinder',
                lang: 'Javascript', 
                url: '/case/pathfinder',
@@ -179,22 +186,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
-               name: 'Neuro flappy',
-               lang: 'Javascript', 
-               url: '/case/neuro-flappy',
-               typeUrl: 'internal',
-               stack: ['vue', 'js'],
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
-            },
-            { 
-               name: 'Pathfinder',
-               lang: 'Javascript', 
-               url: '/case/pathfinder',
-               typeUrl: 'internal',
-               stack: ['vue', 'js'],
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
-            },
-            { 
+               id: 'perceptron',
                name: 'Perceptron',
                lang: 'Javascript', 
                url: '/case/perceptron',
@@ -203,6 +195,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'pool_selection',
                name: 'Pool selection',
                lang: 'Javascript', 
                url: '/case/pool-selection',
@@ -211,6 +204,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'salesperson_lexicographic',
                name: 'Salesperson lexicographic',
                lang: 'Javascript', 
                url: '/case/salesperson-lexicographic',
@@ -219,6 +213,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'smart_rocket',
                name: 'Smart rocket',
                lang: 'Javascript', 
                url: '/case/smart-rocket',
@@ -227,6 +222,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'traveling_salesperson',
                name: 'Traveling salesperson',
                lang: 'Javascript', 
                url: '/case/traveling-salesperson',
@@ -235,6 +231,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'logistic_regression',
                name: 'Logistic regression',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
@@ -243,6 +240,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'multiclass_logistic_regression',
                name: 'Multiclass logistic regression',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
@@ -251,6 +249,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'neural_network_movement_prediction',
                name: 'Neural network (movement prediction)',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
@@ -259,6 +258,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'Neural_network_stock_prediction',
                name: 'Neural network (stock prediction)',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
@@ -267,6 +267,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'text_in_image_detection',
                name: 'Text-in-image detection',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
@@ -275,6 +276,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'plate_and_text_detection',
                name: 'Plate and text detection',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
@@ -283,6 +285,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'plate_detection_and_recognition',
                name: 'Plate detection and recognition',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
@@ -291,6 +294,7 @@ export default{
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
+               id: 'face_detection_and_recognition',
                name: 'Face detection and recognition',
                lang: 'Python',
                url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
@@ -314,44 +318,15 @@ export default{
 
 
 <style>
-.list-enter-active,
-.list-leave-active {
-  transition: all 5s ease;
+.slide-fade-enter-active{
+  transition: all var(--slide-fade-time) ease; 
 }
-.list-enter-from,
-.list-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-
-/*
-  Enter and leave animations can use different
-  durations and timing functions.
-*/
-.slide-fade-enter-active {
-  transition: all 0.3s ease-out;
-}
-
 .slide-fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0s ease;
 }
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
-  opacity: 0;
+.slide-fade-enter-from{
+   opacity: 0;
+   transform: translateY(30px);
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-.lcasaslkm{
-   transition: opacity 5s ease;
-   opacity: 1;  
-}
+.slide-fade-leave-to { opacity: 0; }
 </style>

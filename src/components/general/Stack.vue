@@ -4,8 +4,8 @@
 	 <div  v-for="tech in fnGetStackTech"
 	       :style="{
 	          'background-image': `url(${tech.image})`,
-	          'height': tech.h,
-	          'width': tech.w,
+	          'height': tech.height,
+	          'width': tech.width,
 	          'background-position': 'center',
 	          'background-size': 'contain',
 	          'background-repeat': 'no-repeat',
