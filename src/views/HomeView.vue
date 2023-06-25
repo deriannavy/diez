@@ -77,16 +77,22 @@
       <TransitionGroup class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-1 g-3"
                        name="slide-fade"
                        tag="div">
-         <div class="col" 
+
+         <div :class="['col', {'opacity-50': !card.publishedStatus.published }]" 
               v-for="(card, index) in cpStudiesSearchFiltered" 
               :key="card.id"
               :style="`--slide-fade-time: ${250*index+250 < 3000 ? 250*index+250 : 3000 }ms`">
 
             <div :class="['card p-0', { 'border-primary': card.id == dtHeroCard.id }]">
                <div class="card-body">
-                  <h6 class="card-subtitle mb-2 text-body-secondary">
+
+                  <h6 class="card-subtitle mb-2 text-body-secondary d-flex flex-row justify-content-between">
                      {{card.lang}}
+                     <span :class="`badge rounded-pill text-bg-${ card.publishedStatus.bgColor }`">
+                        {{card.publishedStatus.status}}
+                     </span>
                   </h6>
+
                   <h5 class="card-title">{{card.name}}</h5>
                   <p class="card-text col-8">{{card.description}}</p>
 
@@ -142,6 +148,7 @@ export default{
                url: '/case/binary-tree',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -151,6 +158,7 @@ export default{
                url: '/case/breadth-first-search',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -160,6 +168,7 @@ export default{
                url: '/case/lexicographic-order',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             {  
@@ -169,6 +178,7 @@ export default{
                url: '/case/maze-gen',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -178,6 +188,7 @@ export default{
                url: '/case/multiperceptron',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -187,6 +198,7 @@ export default{
                url: '/case/neuro-flappy',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -196,6 +208,7 @@ export default{
                url: '/case/pathfinder',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -205,6 +218,7 @@ export default{
                url: '/case/perceptron',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -214,6 +228,7 @@ export default{
                url: '/case/pool-selection',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -223,6 +238,7 @@ export default{
                url: '/case/salesperson-lexicographic',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -232,6 +248,7 @@ export default{
                url: '/case/smart-rocket',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -241,6 +258,7 @@ export default{
                url: '/case/traveling-salesperson',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
+               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -250,6 +268,7 @@ export default{
                url: 'https://colab.research.google.com/drive/1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -259,6 +278,7 @@ export default{
                url: 'https://colab.research.google.com/drive/1OnCeUIipMrgVomppfmOPPGVkaSZzSo8z?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -268,6 +288,7 @@ export default{
                url: 'https://colab.research.google.com/drive/1TXcHh10HnvUxuguUOrMSBX893DwGugeU?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -277,6 +298,7 @@ export default{
                url: 'https://colab.research.google.com/drive/1_inSyWJ26bsuDU1-vdBOrwpoi38Tn7tV?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -286,6 +308,7 @@ export default{
                url: 'https://colab.research.google.com/drive/1BEg64kFRaah7-tsTYL8Fb40evD4yDSs0?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -295,6 +318,7 @@ export default{
                url: 'https://colab.research.google.com/drive/1jpUpogd3Ep7nCzQYxdyVDx6SeR5mePgi?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -304,6 +328,7 @@ export default{
                url: 'https://colab.research.google.com/drive/1CVbCXcx79O8MEvDAj1ZhbZssvL772iit?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -313,6 +338,7 @@ export default{
                url: 'https://colab.research.google.com/drive/1LgfR4b11yk8jBDedQQxtbmMYOuLIouMw?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             }
          ]
@@ -320,13 +346,15 @@ export default{
    },
    methods:{
       fnRandomCard(){
-         const randomCardNumber = Math.floor( Math.random() * this.studies.length );
-         return this.studies[randomCardNumber];
+         const published =  this.studies.filter(studies => studies.publishedStatus.published),
+               randomCardNumber = Math.floor( Math.random() *  published.length);
+
+         return published[randomCardNumber];
 
       }
    },
    computed: {
-      cpStudiesFiltered() {
+      cpStudiesTechFiltered() {
 
          if(this.dtFilter.id == "view_all"){return this.studies; }
 
@@ -334,11 +362,21 @@ export default{
       },
       cpStudiesSearchFiltered(){
 
-         if (!this.dtSearchFilter){ this.cpStudiesFiltered }
+         let list = this.cpStudiesTechFiltered;
 
-         return this.cpStudiesFiltered.filter(
-            e => e.name.toLowerCase().includes(this.dtSearchFilter.toLowerCase())
-         )
+         // Add search filter to study list
+         if (this.dtSearchFilter){ 
+            list = list.filter(
+               e => e.name.toLowerCase().includes(this.dtSearchFilter.toLowerCase())
+            )
+         }
+         // Sort list to see published first
+         return list.sort((studyA, studyB) => {
+            if (studyA.publishedStatus.published === studyB.publishedStatus.published) return 0;
+            else if (studyA.publishedStatus.published) return -1;
+            return 1;
+
+         })
       }
    }
 }
