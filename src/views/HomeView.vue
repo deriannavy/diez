@@ -34,14 +34,23 @@
             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                {{ dtFilter.name }}
             </button>
-            <ul class="dropdown-menu dropdown-menu">
+            <ul class="dropdown-menu dropdown-menu p-3">
+               <li><h6 class="dropdown-header ps-0">Technologies</h6></li>
                <li v-if="dtFilter.id != 'view_all'">
-                  <button @click="dtFilter = { name: 'View all', id: 'view_all' }" class="dropdown-item" href="#">
-                     View all
+                  <button @click="dtFilter = { name: 'View all', id: 'view_all' }" 
+                          class="dropdown-item d-flex p-2">
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-archive me-2" viewBox="0 0 16 16">
+                          <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1V2zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5H2zm13-3H1v2h14V2zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                        </svg>
+                        View all
                   </button>
                </li>
-               <li v-for="tech in technologies">
-                  <button @click="dtFilter = tech" :class="['dropdown-item', {'active': dtFilter.id == tech.id}]" href="#">
+               <li v-for="tech in technologies" class="d-flex flex-row">
+                  <button @click="dtFilter = tech" 
+                          :class="['dropdown-item d-flex p-2', {'active': dtFilter.id == tech.id}]">
+
+                     <stack :stack="[tech.id]" :technologies="technologies"/>
                      {{tech.name}}
                   </button>
                </li>
@@ -120,10 +129,10 @@ export default{
          dtSearchFilter: '',
          dtHeroCard: {},
          technologies: [
-            {id: 'js', name: 'Javascript', image: jsimage, width: '30px', height: '30px'},
-            {id: 'python', name: 'Python', image: pyimage, width: '30px', height: '30px'},
-            {id: 'vue', name: 'Vue', image: vuejsimage, width: '30px', height: '30px'},
-            {id: 'colab', name: 'Google Colab', image: colabimage, width: '40px', height: '30px'}
+            {id: 'js', name: 'Javascript', image: jsimage, width: '25px', height: '25px'},
+            {id: 'python', name: 'Python', image: pyimage, width: '25px', height: '25px'},
+            {id: 'vue', name: 'Vue', image: vuejsimage, width: '25px', height: '25px'},
+            {id: 'colab', name: 'Google Colab', image: colabimage, width: '30px', height: '25px'}
          ],
          studies: [
             {  
