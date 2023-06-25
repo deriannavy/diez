@@ -247,7 +247,7 @@ export default{
                id: 'logistic_regression',
                name: 'Logistic regression',
                lang: 'Python',
-               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               url: 'https://colab.research.google.com/drive/1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
@@ -256,7 +256,7 @@ export default{
                id: 'multiclass_logistic_regression',
                name: 'Multiclass logistic regression',
                lang: 'Python',
-               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               url: 'https://colab.research.google.com/drive/1OnCeUIipMrgVomppfmOPPGVkaSZzSo8z?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
@@ -265,7 +265,7 @@ export default{
                id: 'neural_network_movement_prediction',
                name: 'Neural network (movement prediction)',
                lang: 'Python',
-               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               url: 'https://colab.research.google.com/drive/1TXcHh10HnvUxuguUOrMSBX893DwGugeU?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
@@ -274,7 +274,7 @@ export default{
                id: 'Neural_network_stock_prediction',
                name: 'Neural network (stock prediction)',
                lang: 'Python',
-               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               url: 'https://colab.research.google.com/drive/1_inSyWJ26bsuDU1-vdBOrwpoi38Tn7tV?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
@@ -283,7 +283,7 @@ export default{
                id: 'text_in_image_detection',
                name: 'Text-in-image detection',
                lang: 'Python',
-               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               url: 'https://colab.research.google.com/drive/1BEg64kFRaah7-tsTYL8Fb40evD4yDSs0?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
@@ -292,7 +292,7 @@ export default{
                id: 'plate_and_text_detection',
                name: 'Plate and text detection',
                lang: 'Python',
-               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               url: 'https://colab.research.google.com/drive/1jpUpogd3Ep7nCzQYxdyVDx6SeR5mePgi?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
@@ -301,7 +301,7 @@ export default{
                id: 'plate_detection_and_recognition',
                name: 'Plate detection and recognition',
                lang: 'Python',
-               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               url: 'https://colab.research.google.com/drive/1CVbCXcx79O8MEvDAj1ZhbZssvL772iit?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
@@ -310,7 +310,7 @@ export default{
                id: 'face_detection_and_recognition',
                name: 'Face detection and recognition',
                lang: 'Python',
-               url: 'https://colab.research.google.com/drive/ 1K5aX9zu5CiQLS2LI7YYWZGGlMZA-hyOI?usp=sharing',
+               url: 'https://colab.research.google.com/drive/1LgfR4b11yk8jBDedQQxtbmMYOuLIouMw?usp=sharing',
                typeUrl: 'external',
                stack: ['colab', 'python'],
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
