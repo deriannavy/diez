@@ -20,7 +20,6 @@ Three.prototype.addValue = function(val){
         this.root = n;
     } else {
         this.root.addNode(n);
-
     }
 }
 

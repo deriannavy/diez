@@ -12,13 +12,9 @@ function setup() {
         
     }
 
-    
-
     three.traverse();
 
     
-    
-
     return three;
 }
 
