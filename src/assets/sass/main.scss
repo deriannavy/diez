@@ -1,5 +1,19 @@
-@import "bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
 
+$theme-colors: (
+   "primary":    "#004C7F",
+   "secondary":  $secondary,
+   "success":    $success,
+   "info":       $info,
+   "warning":    $warning,
+   "danger":     $danger,
+   "light":      $light,
+   "dark":       $dark
+ );
+
+@import "~bootstrap/scss/bootstrap";
+@import '@/assets/scss/styles.scss';
 
 body{
 	font-family: Geologica;

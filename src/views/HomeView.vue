@@ -93,14 +93,14 @@
                      </span>
                   </h6>
 
-                  <h5 class="card-title">{{card.name}}</h5>
-                  <p class="card-text col-8">{{card.description}}</p>
+                  <h5 class="card-title text-truncate">{{card.name}}</h5>
+                  <p class="card-text">{{card.description}}</p>
 
                   <stack :stack="card.stack" :technologies="technologies"/>
                </div>
                <div class="card-footer p-0 d-flex flex-row justify-content-end">
 
-                  <study-link :study="card"/>
+                  <study-link :study="card" :placeholder="'See more'"/>
 
                </div>
             </div>
@@ -148,7 +148,7 @@ export default{
                url: '/case/binary-tree',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -158,7 +158,7 @@ export default{
                url: '/case/breadth-first-search',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -168,7 +168,7 @@ export default{
                url: '/case/lexicographic-order',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             {  
@@ -178,7 +178,7 @@ export default{
                url: '/case/maze-gen',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -188,7 +188,7 @@ export default{
                url: '/case/multiperceptron',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -198,7 +198,7 @@ export default{
                url: '/case/neuro-flappy',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -208,7 +208,7 @@ export default{
                url: '/case/pathfinder',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -218,7 +218,7 @@ export default{
                url: '/case/perceptron',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -228,7 +228,7 @@ export default{
                url: '/case/pool-selection',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -238,7 +238,7 @@ export default{
                url: '/case/salesperson-lexicographic',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -248,7 +248,7 @@ export default{
                url: '/case/smart-rocket',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -258,7 +258,7 @@ export default{
                url: '/case/traveling-salesperson',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Adapting', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
                description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
             },
             { 
@@ -381,30 +381,3 @@ export default{
    }
 }
 </script>
-
-
-<style>
-.slide-fade-enter-active{
-  transition: all var(--slide-fade-time) ease; 
-}
-.slide-fade-leave-active {
-  transition: all 0s ease;
-}
-.slide-fade-enter-from{
-   opacity: 0;
-   transform: translateY(30px);
-}
-.slide-fade-leave-to { opacity: 0; }
-
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 250ms ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: translateY(-30px);
-}
-</style>
