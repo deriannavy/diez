@@ -31,7 +31,11 @@
          <h4>Case studies</h4>
 
          <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn dropdown-toggle d-flex flex-row align-items-center" 
+                    type="button" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+               <stack :stack="[dtFilter.id]" :technologies="technologies"/>
                {{ dtFilter.name }}
             </button>
             <ul class="dropdown-menu dropdown-menu p-3">
@@ -93,7 +97,7 @@
                      </span>
                   </h6>
 
-                  <h5 class="card-title text-truncate">{{card.name}}</h5>
+                  <h5 class="card-title">{{card.name}}</h5>
                   <p class="card-text">{{card.description}}</p>
 
                   <stack :stack="card.stack" :technologies="technologies"/>
@@ -122,6 +126,8 @@ import jsimage from '@/assets/images/javascript.png';
 import vuejsimage from '@/assets/images/vuejs.png';
 import pyimage from '@/assets/images/python.png';
 import colabimage from '@/assets/images/colab.png';
+import flaskimage from '@/assets/images/flask.png';
+
 </script>
 <script>
 export default{
@@ -138,7 +144,8 @@ export default{
             {id: 'js', name: 'Javascript', image: jsimage, width: '25px', height: '25px'},
             {id: 'python', name: 'Python', image: pyimage, width: '25px', height: '25px'},
             {id: 'vue', name: 'Vue', image: vuejsimage, width: '25px', height: '25px'},
-            {id: 'colab', name: 'Google Colab', image: colabimage, width: '30px', height: '25px'}
+            {id: 'colab', name: 'Google Colab', image: colabimage, width: '30px', height: '25px'},
+            {id: 'flask', name: 'Flask', image: flaskimage, width: '30px', height: '25px'}
          ],
          studies: [
             {  
@@ -149,7 +156,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'breadth_first_search',
@@ -159,7 +166,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'lexicographic_order',
@@ -169,7 +176,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             {  
                id: 'maze_gen',
@@ -179,7 +186,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'multiperceptron',
@@ -189,7 +196,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'neuro_flappy',
@@ -199,7 +206,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'pathfinder',
@@ -209,7 +216,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'perceptron',
@@ -219,7 +226,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'pool_selection',
@@ -229,7 +236,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'salesperson_lexicographic',
@@ -239,7 +246,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'smart_rocket',
@@ -249,7 +256,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'traveling_salesperson',
@@ -259,7 +266,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: '?' 
             },
             { 
                id: 'logistic_regression',
@@ -269,7 +276,7 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: 'A very simple logistic regression is shown using the machine learning tools to determine prospects to credits based on subtraction calculations between your perceptions and deductions.' 
             },
             { 
                id: 'multiclass_logistic_regression',
@@ -279,7 +286,7 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: 'A regression is shown that allows categorizing arrays 2-dimensional, simulating handwritten numbers, this allows you to correctly categorize the digits from 0 to 9 with a precision of 0.955' 
             },
             { 
                id: 'neural_network_movement_prediction',
@@ -289,7 +296,7 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: 'A 4-layer sequential neural network is shown that manages to predict with hiring and dismissal information an adjusted vision of how they would behave in a period of one year.' 
             },
             { 
                id: 'Neural_network_stock_prediction',
@@ -299,7 +306,7 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: 'A 4-layer sequential neural network is shown that manages to predict with information on the prices of apple shares an adjusted vision of how they would behave in a period of one year.' 
             },
             { 
                id: 'text_in_image_detection',
@@ -309,7 +316,7 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: 'Here we can see the use of machine learning libraries to detect characters, in this case to detect text on license plates (there are still filters to be made on the text).' 
             },
             { 
                id: 'plate_and_text_detection',
@@ -319,7 +326,7 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: 'Here we can see a machine learning architecture, where a model is used to detect text in an image and then the letters are recognized.' 
             },
             { 
                id: 'plate_detection_and_recognition',
@@ -329,7 +336,7 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: 'With the help of pre-trained models, we can see a strategy for license plate detection, image cleanup, noise segmentation, and finally character detection and recognition.' 
             },
             { 
                id: 'face_detection_and_recognition',
@@ -339,7 +346,17 @@ export default{
                typeUrl: 'external',
                stack: ['colab', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.' 
+               description: 'A model capable of detecting faces in images and determining by training whether a face matches' 
+            },
+            { 
+               id: 'plate_detection_and_recognition_web',
+               name: 'Plate detection and recognition web',
+               lang: 'Python',
+               url: 'https://plates.datahome.dev',
+               typeUrl: 'external',
+               stack: ['flask', 'python'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
+               description: 'With the help of pre-trained models, we can see a strategy for license plate detection, image cleanup, noise segmentation, and finally character detection and recognition in a web app. (user:plates) (pass:platespass)' 
             }
          ]
       }

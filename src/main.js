@@ -1,5 +1,5 @@
 // Import our custom CSS
-import '@/assets/sass/main.scss'
+import '@/assets/scss/main.scss'
 import * as bootstrap from 'bootstrap'
 
 
