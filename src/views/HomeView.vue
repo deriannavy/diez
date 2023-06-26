@@ -20,7 +20,7 @@
                   Github
                   </a>
                   <a class="btn btn-outline-secondary btn px-4" href="https://github.com/deriannavy/diez">
-                     this Repository
+                     this repository
                   </a>
                </div>
             </div>
@@ -122,7 +122,7 @@
 import heroimage from '@/assets/images/principal.png';
 // Components
 import Stack from '@/components/general/Stack.vue';
-import StudyLink from '@/components/general/studyLink.vue';
+import StudyLink from '@/components/general/StudyLink.vue';
 // Stack image
 import jsimage from '@/assets/images/javascript.png';
 import vuejsimage from '@/assets/images/vuejs.png';
