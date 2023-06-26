@@ -10,7 +10,7 @@
             <div class="col-lg-6 text-start">
                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Diez.dev</h1>
                <p class="lead">
-               This is un example of all the projects, click the box to redirect
+                  welcome, I show you some of my hobby projects or interests, I promise to add all of them, of which I have a backup.
                </p>
                <div class="d-grid gap-2 d-md-flex">
                   <a class="btn btn-primary btn px-4 gap-3" href="https://github.com/deriannavy">
@@ -127,6 +127,8 @@ import vuejsimage from '@/assets/images/vuejs.png';
 import pyimage from '@/assets/images/python.png';
 import colabimage from '@/assets/images/colab.png';
 import flaskimage from '@/assets/images/flask.png';
+import elixirimage from '@/assets/images/elixir.png';
+import phoeniximage from '@/assets/images/phoenix.png';
 
 </script>
 <script>
@@ -145,7 +147,9 @@ export default{
             {id: 'python', name: 'Python', image: pyimage, width: '25px', height: '25px'},
             {id: 'vue', name: 'Vue', image: vuejsimage, width: '25px', height: '25px'},
             {id: 'colab', name: 'Google Colab', image: colabimage, width: '30px', height: '25px'},
-            {id: 'flask', name: 'Flask', image: flaskimage, width: '30px', height: '25px'}
+            {id: 'flask', name: 'Flask', image: flaskimage, width: '30px', height: '25px'},
+            {id: 'elixir', name: 'Elixir', image: elixirimage, width: '30px', height: '25px'},
+            {id: 'phoenix', name: 'Phoenix', image: phoeniximage, width: '35px', height: '30px'}
          ],
          studies: [
             {  
@@ -357,6 +361,26 @@ export default{
                stack: ['flask', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: 'With the help of pre-trained models, we can see a strategy for license plate detection, image cleanup, noise segmentation, and finally character detection and recognition in a web app. (user:plates) (pass:platespass)' 
+            },
+            { 
+               id: 'single_sign_on_frontend',
+               name: 'Single sign on',
+               lang: 'Javascript',
+               url: 'https://datahome.dev',
+               typeUrl: 'external',
+               stack: ['js', 'vue'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
+               description: 'Example of a web application that generates a jwt token that will later be used by other subdomains of the service suite (Frontend)' 
+            },
+            { 
+               id: 'single_sign_on_backend',
+               name: 'Single sign on',
+               lang: 'Elixir',
+               url: 'https://datahome.dev',
+               typeUrl: 'external',
+               stack: ['elixir', 'phoenix'],
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
+               description: 'Example of a web application that generates a jwt token that will later be used by other subdomains of the service suite (Backend)' 
             }
          ]
       }
