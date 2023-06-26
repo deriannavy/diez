@@ -10,7 +10,7 @@
             <div class="col-lg-6 text-start">
                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Diez.dev</h1>
                <p class="lead">
-                  welcome, I show you some of my hobby projects or interests, I promise to add all of them, of which I have a backup.
+                  Happy to see you, I show you some of my hobby projects or interests, I promise to add all of them, of which I have a backup, enjoy ✌🏻.
                </p>
                <div class="d-grid gap-2 d-md-flex">
                   <a class="btn btn-primary btn px-4 gap-3" href="https://github.com/deriannavy">
@@ -82,12 +82,14 @@
                        name="slide-fade"
                        tag="div">
 
-         <div :class="['col', {'opacity-50': !card.publishedStatus.published }]" 
+         <div class="col" 
               v-for="(card, index) in cpStudiesSearchFiltered" 
               :key="card.id"
               :style="`--slide-fade-time: ${250*index+250 < 3000 ? 250*index+250 : 3000 }ms`">
 
-            <div :class="['card hover-shadow p-0', { 'border-primary': card.id == dtHeroCard.id }]">
+            <div :class="['card p-0', { 'border-primary': card.id == dtHeroCard.id }, 
+                           card.publishedStatus.published ? 'hover-shadow' : 'opacity-50'
+                         ]">
                <div class="card-body">
 
                   <h6 class="card-subtitle mb-2 text-body-secondary d-flex flex-row justify-content-between">
