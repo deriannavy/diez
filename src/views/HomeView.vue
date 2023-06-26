@@ -121,7 +121,7 @@
 <script setup>
 import heroimage from '@/assets/images/principal.png';
 // Components
-import Stack from '@/components/general/stack.vue';
+import Stack from '@/components/general/Stack.vue';
 import StudyLink from '@/components/general/studyLink.vue';
 // Stack image
 import jsimage from '@/assets/images/javascript.png';
