@@ -7,7 +7,7 @@
 </span>
 <router-link v-else-if="study.typeUrl == 'internal'" 
              :to="study.url" 
-             class="d-flex flex-row align-items-center btn text-primary">
+             class="d-flex flex-row align-items-center btn text-primary icon-link-hover">
 
    <span class="me-1">{{ placeholder ? placeholder : study.name }}</span>
    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
@@ -18,7 +18,7 @@
 <a v-else-if="study.typeUrl == 'external'"
    :href="study.url"
    target="_blank"
-   class="d-flex flex-row align-items-center align-items-end btn text-primary">
+   class="d-flex flex-row align-items-center align-items-end btn text-primary icon-link-hover">
    
    <span class="me-1">{{ placeholder ? placeholder : study.name }}</span>
    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
@@ -27,7 +27,7 @@
    </svg>
 </a>
 <span v-else>
-   not recognized
+   Not recognized
 </span>
 </template>
 

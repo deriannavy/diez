@@ -4,7 +4,7 @@
       <Transition name="fade" tag="div">
          <div class="row flex-lg-row-reverse align-items-center g-5 py-5" v-if="!dtSearchFilter">
             <div class="col-10 col-sm-8 col-lg-6 d-flex flex-column align-items-center">
-               <img :src="binaryTree" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="400" height="auto" loading="lazy">
+               <img :src="heroimage" class="d-block mx-lg-auto img-fluid rounded shadow-lg" alt="Bootstrap Themes" width="400" height="auto" loading="lazy">
                <study-link :study="dtHeroCard"/>
             </div>
             <div class="col-lg-6 text-start">
@@ -87,7 +87,7 @@
               :key="card.id"
               :style="`--slide-fade-time: ${250*index+250 < 3000 ? 250*index+250 : 3000 }ms`">
 
-            <div :class="['card p-0', { 'border-primary': card.id == dtHeroCard.id }]">
+            <div :class="['card hover-shadow p-0', { 'border-primary': card.id == dtHeroCard.id }]">
                <div class="card-body">
 
                   <h6 class="card-subtitle mb-2 text-body-secondary d-flex flex-row justify-content-between">
@@ -117,7 +117,7 @@
 </template>
 
 <script setup>
-import binaryTree from '@/assets/images/binary_tree.png';
+import heroimage from '@/assets/images/principal.png';
 // Components
 import Stack from '@/components/general/stack.vue';
 import StudyLink from '@/components/general/studyLink.vue';
