@@ -9,14 +9,9 @@ const router = createRouter({
       },
       {
          path: '/',
-         name: 'home',
+         name: 'Home',
          component: () => import('../views/HomeView.vue')
-      },
-      // {
-      //    path: '/case/binary-tree',
-      //    name: 'BinaryTree',
-      //    component: () => import('../views/BinaryTree.vue')
-      // }
+      }
    ]
 })
 
