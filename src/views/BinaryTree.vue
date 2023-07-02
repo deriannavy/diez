@@ -130,18 +130,23 @@ export default{
 
 			let batchFinal = [], batch = [];
 
-			for (let b of branch) {
+			for (var i = branch.length - 1; i >= 0; i--) {
 
-				if (batch.length < this.dtBranchSize) {
-					batch.push(b);
+				const b = branch[i]
+
+				if(i % (this.dtBranchSize+1) == 0){
+					continue
 				}
-				else {
-					batchFinal.push({ ...b, children: batch });
-					batch = [];
-				}	
+
+				batch.push(b);
+				
+				if(i % this.dtBranchSize == 0){
+					batchFinal.push({ children: batch });
+					batch = [];	
+				}
 			}
 
-			console.log(batchFinal.length, this.dtBranchSize)
+			// console.log(batchFinal.length, this.dtBranchSize)
 			if (batchFinal.length != this.dtBranchSize) { 
 				// return this.fnGenerateBranchTree(batchFinal);
 			}
