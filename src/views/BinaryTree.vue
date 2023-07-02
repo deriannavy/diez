@@ -20,26 +20,9 @@
 	<section class="row">
 		<tree-node 
 			:node="root"
+			@make-folder="fnMakeFolder"
 			@add-item="fnAddNode"
 		/>
-		<!-- <div
-          :class="{bold: isFolder}"
-          @click="toggle"
-          @dblclick="makeFolder">
-          {{ item.name }}
-          <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
-        </div> -->
-        <!--<ul v-show="isOpen" v-if="isFolder">
-          <tree-item
-            class="item"
-            v-for="(child, index) in item.children"
-            :key="index"
-            :item="child"
-            @make-folder="$emit('make-folder', $event)"
-            @add-item="$emit('add-item', $event)"
-          ></tree-item>
-          <li class="add" @click="$emit('add-item', item)">+</li>
-        </ul> -->
 	</section>
 </main>
 </template>
@@ -56,22 +39,37 @@ export default{
 			root: {
 				name: 'Root',
 				children: [
-					{ name: "hello" },
-          		{ name: "wat" },
-
+					{ name: "Node 1" },
+          		{ name: "Node 2" },
+          		{ 
+          			name: "Node 3",
+          			children: [
+          				{ name: "Node 1" },
+          				{ name: "Node 2" }
+          			]
+          		},
+          		{ name: "Node 4" },
+          		{ 
+          			name: "Node 5",
+          			children: [
+          				{ name: "Node 1" },
+          				{ name: "Node 2" }
+          			]
+          		}
 				]
 			}
 		}
 	},
 	methods:{
-		fnAddNode(node){
-			node.children.push({name: "new stuff"});
+		fnAddNode({node, name}){
+			const nodeLength = node.children.length + 1;
+			node.children.push({name: name ? name : `Node ${nodeLength}`});
+		},
+		fnMakeFolder(node){
+			node.children = []
+			this.fnAddNode({node});
 		}
 	}
-	// makeFolder: function(item) {
-   //          Vue.set(item, "children", []);
-   //          this.addItem(item);
-   //        },
 }
 
 </script>
