@@ -33,9 +33,57 @@ import treeNode from '@/components/cases/treeNode.vue';
 </script>
 <script>
 export default{
+	mounted(){
+		
+
+		// for (var i = tree.length - 1; i >= 0; i--) {
+
+			// const node = tree[i];
+
+			// branch.push({ name: node });
+
+			// if (branch.length == ) {}
+			// if (node % branchSize == 0) {
+			// 	levelBranch.push();
+			// }
+
+			// if (levelBranch.length == branchSize) {
+			// 	treeArtificial.push({
+			// 		name: node,
+			// 		children: levelBranch
+			// 	});
+			// 	levelBranch = [];
+			// }
+
+
+
+
+		// }
+
+
+		// this.root = { name: 'Root', children: treeArtificial };
+		// r:{
+		// 	0:{
+		// 		3:{}
+		// 		4:{}
+		// 		5:{}
+		// 	}
+		// 	1:{
+		// 		6:{}
+		// 		7:{}
+		// 		8:{}	
+		// 	}
+		// 	2:{
+		// 		9:{}
+		// 	}
+		// }
+		this.fnGenerateBinaryTree();
+	},
 	components: { treeNode },
 	data(){
 		return {
+			dtTreeLeafs: 20,
+			dtBranchSize: 3,
 			root: {
 				name: 'Root',
 				children: [
@@ -68,6 +116,37 @@ export default{
 		fnMakeFolder(node){
 			node.children = []
 			this.fnAddNode({node});
+		},
+		fnGenerateBinaryTree(){
+			const tree = Array.from({length: this.dtTreeLeafs}, (e, i)=>  ({ name:i }) );
+			
+			
+			let finalTree = this.fnGenerateBranchTree(tree);
+			console.log(finalTree)
+
+		},
+		fnGenerateBranchTree(branch){
+			if(branch.length == this.dtBranchSize){ return branch }
+
+			let batchFinal = [], batch = [];
+
+			for (let b of branch) {
+
+				if (batch.length < this.dtBranchSize) {
+					batch.push(b);
+				}
+				else {
+					batchFinal.push({ ...b, children: batch });
+					batch = [];
+				}	
+			}
+
+			console.log(batchFinal.length, this.dtBranchSize)
+			if (batchFinal.length != this.dtBranchSize) { 
+				// return this.fnGenerateBranchTree(batchFinal);
+			}
+
+			return batchFinal;
 		}
 	}
 }
