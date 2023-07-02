@@ -102,7 +102,7 @@ export default{
 	},
 	data() {
    	return {
-     		dtIsOpen: true,
+     		dtIsOpen: false,
      		dtSetName: false,
      		dtNodeName: ''
    	}
@@ -120,7 +120,6 @@ export default{
 			}
 		},
 		fnAddNode(node){
-			console.log(node)
 			this.$emit('add-item', {node, name: this.dtNodeName});
 			this.dtSetName = false;
 			this.dtNodeName = '';				  	  			

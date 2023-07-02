@@ -118,40 +118,55 @@ export default{
 			this.fnAddNode({node});
 		},
 		fnGenerateBinaryTree(){
-			const tree = Array.from({length: this.dtTreeLeafs}, (e, i)=>  ({ name:i }) );
+			const tree = Array.from({length: this.dtTreeLeafs}, (e, i)=>  ({ name: `Node ${i+1}` }) );
 			
 			
 			let finalTree = this.fnGenerateBranchTree(tree);
-			console.log(finalTree)
+			this.root = { name: 'Root', children: finalTree };
 
 		},
-		fnGenerateBranchTree(branch){
+		fnGenerateBranchTree(branch, batchFinal = []){
 			if(branch.length == this.dtBranchSize){ return branch }
 
-			let batchFinal = [], batch = [];
+			let batch = [], branchCount = 0;
+
 
 			for (var i = branch.length - 1; i >= 0; i--) {
+				const b = branch[i];
 
-				const b = branch[i]
-
-				if(i % (this.dtBranchSize+1) == 0){
-					continue
-				}
-
+				branchCount++
 				batch.push(b);
 				
 				if(i % this.dtBranchSize == 0){
 					batchFinal.push({ children: batch });
-					batch = [];	
+					batch = [];
+				}
+
+				if (batchFinal.length == this.dtBranchSize) {
+					break
 				}
 			}
 
-			// console.log(batchFinal.length, this.dtBranchSize)
-			if (batchFinal.length != this.dtBranchSize) { 
-				// return this.fnGenerateBranchTree(batchFinal);
+			branch.splice(branch.length - branchCount, branchCount);
+			console.log(branch)
+			branch.sort(e => (a, b) => {
+				return a.name > b.name ? 0 : 1;
+			});
+			console.log(branch)
+
+
+			for (var i = 0; i < batchFinal.length; i++) {
+				const children = batchFinal[i];
+
+				let branchParentIndex = ((branch.length - i) - 1),
+					 branchParentIndexInverted = branch.length + (i - this.dtBranchSize);
+				
+
+				branch[branchParentIndexInverted] = { ...branch[branchParentIndexInverted], ...children };
+				
 			}
 
-			return batchFinal;
+			return this.fnGenerateBranchTree(branch);
 		}
 	}
 }
