@@ -4,7 +4,7 @@
 	<button @click="fnToggleFolder" 
 			  @dblclick="fnMakeFolder"
 		 	  :class="['btn d-flex flex-row align-items-center', 
-		 	  				cpIsFolder ? 'fs-5 fw-bold text-body-emphasis' : 'text-body-text'
+		 	  				cpIsFolder ? 'fs-6 fw-bold text-body-emphasis' : 'text-body-text'
 		 	   ]">
 
 		<svg xmlns="http://www.w3.org/2000/svg" 
@@ -39,6 +39,9 @@
 
 		<span class="ms-2">
 			{{node.name}}
+		</span>
+		<span class="ms-2 badge rounded-pill text-bg-primary" v-if="node.childrenSize > 0 && !dtIsOpen">
+			{{node.childrenSize}}
 		</span>
 	</button>
 
@@ -122,7 +125,7 @@ export default{
 		fnAddNode(node){
 			this.$emit('add-item', {node, name: this.dtNodeName});
 			this.dtSetName = false;
-			this.dtNodeName = '';				  	  			
+			this.dtNodeName = '';		  	  			
 		}
 	},
 	computed: {

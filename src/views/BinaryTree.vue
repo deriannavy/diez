@@ -34,55 +34,12 @@ import treeNode from '@/components/cases/treeNode.vue';
 <script>
 export default{
 	mounted(){
-		
-
-		// for (var i = tree.length - 1; i >= 0; i--) {
-
-			// const node = tree[i];
-
-			// branch.push({ name: node });
-
-			// if (branch.length == ) {}
-			// if (node % branchSize == 0) {
-			// 	levelBranch.push();
-			// }
-
-			// if (levelBranch.length == branchSize) {
-			// 	treeArtificial.push({
-			// 		name: node,
-			// 		children: levelBranch
-			// 	});
-			// 	levelBranch = [];
-			// }
-
-
-
-
-		// }
-
-
-		// this.root = { name: 'Root', children: treeArtificial };
-		// r:{
-		// 	0:{
-		// 		3:{}
-		// 		4:{}
-		// 		5:{}
-		// 	}
-		// 	1:{
-		// 		6:{}
-		// 		7:{}
-		// 		8:{}	
-		// 	}
-		// 	2:{
-		// 		9:{}
-		// 	}
-		// }
 		this.fnGenerateBinaryTree();
 	},
 	components: { treeNode },
 	data(){
 		return {
-			dtTreeLeafs: 20,
+			dtTreeLeafs: 30,
 			dtBranchSize: 3,
 			root: {
 				name: 'Root',
@@ -111,63 +68,108 @@ export default{
 	methods:{
 		fnAddNode({node, name}){
 			const nodeLength = node.children.length + 1;
-			node.children.push({name: name ? name : `Node ${nodeLength}`});
+			node.children.push({
+				name: name ? name : `Node ${nodeLength}`,
+				childrenSize: 0
+			});
+			node.childrenSize = node.children.length
 		},
 		fnMakeFolder(node){
 			node.children = []
 			this.fnAddNode({node});
 		},
 		fnGenerateBinaryTree(){
-			const tree = Array.from({length: this.dtTreeLeafs}, (e, i)=>  ({ name: `Node ${i+1}` }) );
+			const tree = Array.from(
+				{length: this.dtTreeLeafs}, 
+				(e, i)=>  ({ id: i, name: `Node ${i+1}`, childrenSize: 0 }) 
+			);
 			
 			
 			let finalTree = this.fnGenerateBranchTree(tree);
 			this.root = { name: 'Root', children: finalTree };
 
 		},
-		fnGenerateBranchTree(branch, batchFinal = []){
-			if(branch.length == this.dtBranchSize){ return branch }
+		fnGenerateBranchTree(tree){
 
-			let batch = [], branchCount = 0;
+			let treeGenerated = null;
+			for (var i = 0; i < tree.length; i++) {
 
+				const branch = tree[i];
 
-			for (var i = branch.length - 1; i >= 0; i--) {
-				const b = branch[i];
-
-				branchCount++
-				batch.push(b);
-				
-				if(i % this.dtBranchSize == 0){
-					batchFinal.push({ children: batch });
-					batch = [];
-				}
-
-				if (batchFinal.length == this.dtBranchSize) {
-					break
-				}
+				treeGenerated = this.fnGenerateAddBranchTree(treeGenerated, branch);
+				console.log(treeGenerated)
 			}
+		},
+		fnGenerateAddBranchTree(treeGenerated, branch){
+			
 
-			branch.splice(branch.length - branchCount, branchCount);
-			console.log(branch)
-			branch.sort(e => (a, b) => {
-				return a.name > b.name ? 0 : 1;
-			});
-			console.log(branch)
+			if(treeGenerated == null){
+        		treeGenerated = branch;
+    		} else {
+    			if(treeGenerated.children && treeGenerated.children.length < 2){
+    				treeGenerated.children.push(branch);
+    			} else {
+    				treeGenerated.children = []
+    				treeGenerated.children = [this.fnGenerateAddBranchTree(treeGenerated.children[0], branch)]
+    			}
+        		// if (branch.value < this.value) {
+			   //      if (this.left == null) this.left = branch; 
+			   //      else this.left.addNode(branch);
+			        
+			   //  } else  if (branch.value > this.value){
 
+			   //      if (this.right == null) this.right = branch; 
+			   //      else this.right.addNode(branch);
+			        
+			   //  }	
+    		}
+    		return treeGenerated;
 
-			for (var i = 0; i < batchFinal.length; i++) {
-				const children = batchFinal[i];
-
-				let branchParentIndex = ((branch.length - i) - 1),
-					 branchParentIndexInverted = branch.length + (i - this.dtBranchSize);
-				
-
-				branch[branchParentIndexInverted] = { ...branch[branchParentIndexInverted], ...children };
-				
-			}
-
-			return this.fnGenerateBranchTree(branch);
 		}
+		// fnGenerateBranchTree(branch, batchFinal = []){
+		// 	console.log(branch.length)
+		// 	if(branch.length == this.dtBranchSize){ return branch }
+
+		// 	let batch = [], branchCount = 0;
+
+
+		// 	for (var i = branch.length - 1; i >= 0; i--) {
+		// 		const b = branch[i];
+
+		// 		branchCount++
+		// 		batch.unshift(b);
+				
+		// 		if(i % this.dtBranchSize == 0){
+		// 			batchFinal.push({ children: batch, childrenSize: batch.length });
+		// 			batch = [];
+		// 		}
+
+		// 		if (batchFinal.length == this.dtBranchSize) {
+		// 			break
+		// 		}
+		// 	}
+
+		// 	branch.splice(branch.length - branchCount, branchCount);
+			
+		// 	for (var i = 0; i < batchFinal.length; i++) {
+		// 		const children = batchFinal[i];
+
+		// 		let branchParentIndex = ((branch.length - i) - 1);
+		// 		console.log(branchParentIndex)
+		// 		let childrenSize = children.childrenSize + children.children.reduce((acc,e) => e.childrenSize+acc,0);
+					 
+		// 		branch[branchParentIndex] = { 
+		// 			...branch[branchParentIndex], 
+		// 			...children,
+		// 			childrenSize: childrenSize
+		// 		};
+				
+		// 	}
+		// 	console.log(branch)
+		// 	console.log(batchFinal)
+		// 	// return this.fnGenerateBranchTree(branch);
+		// 	return []
+		// }
 	}
 }
 
