@@ -4,7 +4,7 @@ const router = createRouter({
    history: createWebHistory(import.meta.env.BASE_URL),
    routes: [
       {
-         path: '/:pathMatch(.*)*',
+         path: '/:pathMatch(.*)',
          redirect: { name: 'Home' }
       },
       {
@@ -13,11 +13,10 @@ const router = createRouter({
          component: () => import('../views/HomeView.vue')
       },
       {
-         path: '/binary-tree',
+         path: '/case/binary-tree',
          name: 'BinaryTree',
          component: () => import('../views/BinaryTree.vue')
-      },
-
+      }
    ]
 })
 

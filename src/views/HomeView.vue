@@ -107,7 +107,6 @@
                <div class="card-footer p-0 d-flex flex-row justify-content-end">
 
                   <study-link :study="card" :placeholder="'See more'"/>
-
                </div>
             </div>
          </div>
@@ -131,7 +130,6 @@ import colabimage from '@/assets/images/colab.png';
 import flaskimage from '@/assets/images/flask.png';
 import elixirimage from '@/assets/images/elixir.png';
 import phoeniximage from '@/assets/images/phoenix.png';
-
 </script>
 <script>
 export default{
@@ -161,8 +159,8 @@ export default{
                url: '/case/binary-tree',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: '?' 
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
+               description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo' 
             },
             { 
                id: 'breadth_first_search',

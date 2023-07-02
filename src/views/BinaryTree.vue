@@ -1,7 +1,7 @@
 <template>
-<main>
+<main class="container col-xxl-10 px-4 py-5">
 
-	<div class="container col-xxl-10 px-4 py-5">
+	<section class="row">
 
 		<router-link to="/" class="link-secondary mb-2 d-flex flex-row align-items-center">
 			<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left me-2" 
@@ -11,116 +11,68 @@
 			<span>Case studies</span>
 		</router-link>
 
-		<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Binary Tree</h1>
+		<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Binary Tree</h1>	
+		
+		<p class="col col-12 col-md-8 col-lg-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
 			
-	</div>
+	</section>
+
+	<section class="row">
+		<tree-node 
+			:node="root"
+			@add-item="fnAddNode"
+		/>
+		<!-- <div
+          :class="{bold: isFolder}"
+          @click="toggle"
+          @dblclick="makeFolder">
+          {{ item.name }}
+          <span v-if="isFolder">[{{ isOpen ? '-' : '+' }}]</span>
+        </div> -->
+        <!--<ul v-show="isOpen" v-if="isFolder">
+          <tree-item
+            class="item"
+            v-for="(child, index) in item.children"
+            :key="index"
+            :item="child"
+            @make-folder="$emit('make-folder', $event)"
+            @add-item="$emit('add-item', $event)"
+          ></tree-item>
+          <li class="add" @click="$emit('add-item', item)">+</li>
+        </ul> -->
+	</section>
 </main>
 </template>
 
+<script setup>
+// Components
+import treeNode from '@/components/cases/treeNode.vue';
+</script>
 <script>
 export default{
+	components: { treeNode },
 	data(){
 		return {
-			root: null
+			root: {
+				name: 'Root',
+				children: [
+					{ name: "hello" },
+          		{ name: "wat" },
+
+				]
+			}
 		}
-		
+	},
+	methods:{
+		fnAddNode(node){
+			node.children.push({name: "new stuff"});
+		}
 	}
+	// makeFolder: function(item) {
+   //          Vue.set(item, "children", []);
+   //          this.addItem(item);
+   //        },
 }
-// function Three(){
-//     this.root = null;
-// }
 
-
-// Three.prototype.traverse = function(){
-//     this.root.visit();
-// }
-
-// Three.prototype.search = function(val){
-//     var found = this.root.search(val);
-
-//     return found;
-// }
-
-// Three.prototype.addValue = function(val){
-//     var n = new Node(val);
-
-//     if (this.root == null) {
-//         this.root = n;
-//     } else {
-//         this.root.addNode(n);
-//     }
-// }
-
-// function Node(val) {
-//     this.value = val;
-//     this.left = null;
-//     this.right = null;
-// }
-
-// Node.prototype.search = function(val){
-
-//     if (this.value == val) return this
-
-//     else if (val < this.value && this.left != null) return this.left.search(val)
-
-//     else if (val > this.value && this.right != null) return this.right.search(val)
-
-    
-//     return null
-    
-// }
-
-
-// Node.prototype.visit = function(){
-
-//     if (this.left != null) this.left.visit();
-    
-//     if (this.right != null) this.right.visit();
-
-//     console.log(this.value);
-// }
-
-
-// Node.prototype.addNode = function(n) {
-
-//     if (n.value < this.value) {
-
-//         if (this.left == null) this.left = n; 
-//         else this.left.addNode(n);
-        
-//     } else  if (n.value > this.value){
-
-//         if (this.right == null) this.right = n; 
-//         else this.right.addNode(n);
-        
-//     }
-    
-// }
-
-
-// var three;
-// function setup() {
-//     three = new Three();
-    
-
-//     for (let i = 0; i < 10; i++) {
-        
-//         var randomNumber = Math.floor(Math.random() * 201);
-
-//         three.addValue(randomNumber);
-        
-//     }
-
-//     three.traverse();
-
-    
-//     return three;
-// }
-
-
-
-
-
-// console.log(setup());
 </script>
 
