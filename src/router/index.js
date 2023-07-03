@@ -16,6 +16,11 @@ const router = createRouter({
          path: '/case/binary-tree',
          name: 'BinaryTree',
          component: () => import('../views/BinaryTree.vue')
+      },
+      {
+         path: '/case/breadth-first-search',
+         name: 'BreadthFirstSearch',
+         component: () => import('../views/BreadthFirstSearch.vue')
       }
    ],
    scrollBehavior (to, from, savedPosition) {
