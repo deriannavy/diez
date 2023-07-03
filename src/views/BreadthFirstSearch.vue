@@ -58,16 +58,17 @@ export default{
 		fnCanvasSetUp(){
 			this.dtP5Canvas.createCanvas( window.innerWidth / 2, window.innerHeight / 2 );
 
-			this.dtGraph = new BreadthFirstSearchGraph();
+			this.dtGraph = new BreadthFirstSearchGraph(this.dtP5Canvas);
 			
-			var you = this.dtGraph.addNode(this.dtP5Canvas, 'you');
-			  // var bob = graph.addNode('bob');
-			  // var alice = graph.addNode('alice');
-			  // var claire = graph.addNode('claire');
-			  // var anuj = graph.addNode('anuj');
-			  // var peggy = graph.addNode('peggy');
-			  // var thom = graph.addNode('thom');
-			  // var jonny = graph.addNode('jonny');
+			var you = this.dtGraph.addNode('you');
+			var bob = this.dtGraph.addNode('bob');
+			var alice = this.dtGraph.addNode('alice');
+			var claire = this.dtGraph.addNode('claire');
+			var anuj = this.dtGraph.addNode('anuj');
+			var peggy = this.dtGraph.addNode('peggy');
+			var thom = this.dtGraph.addNode('thom');
+			var jonny = this.dtGraph.addNode('jonny');
+			
 			  // you.connect(alice, bob, claire);
 			  // bob.connect(anuj, peggy);
 			  // alice.connect(peggy);
