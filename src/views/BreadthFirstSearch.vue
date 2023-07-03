@@ -26,18 +26,23 @@
 <script setup>
 // Libs
 import p5 from 'p5';
+// Classes
+import BreadthFirstSearchGraph from '@/classes/BreadthFirstSearchGraph.js';
 </script>
 <script>
 
 export default{
 	mounted(){
-
 		this.dtP5Instance = new p5(this.fnCanvasInitializer, this.$refs.canvas);
 	},
 	data(){
 		return{
 			dtP5Instance: null,
-			dtP5Canvas: null
+			dtP5Canvas: null,
+
+			dtGraph: null,
+			dtGraphData: null
+			
 		}
 	},
 	methods:{
@@ -47,18 +52,67 @@ export default{
 
 			sketch.setup = this.fnCanvasSetUp;
 			sketch.draw = this.fnCanvasDraw;
+
 			
 		},
 		fnCanvasSetUp(){
-			this.dtP5Canvas.createCanvas(
-				window.innerWidth / 2, 
-				window.innerHeight / 2
-			);
+			this.dtP5Canvas.createCanvas( window.innerWidth / 2, window.innerHeight / 2 );
+
+			this.dtGraph = new BreadthFirstSearchGraph();
+			
+			var you = this.dtGraph.addNode(this.dtP5Canvas, 'you');
+			  // var bob = graph.addNode('bob');
+			  // var alice = graph.addNode('alice');
+			  // var claire = graph.addNode('claire');
+			  // var anuj = graph.addNode('anuj');
+			  // var peggy = graph.addNode('peggy');
+			  // var thom = graph.addNode('thom');
+			  // var jonny = graph.addNode('jonny');
+			  // you.connect(alice, bob, claire);
+			  // bob.connect(anuj, peggy);
+			  // alice.connect(peggy);
+			  // claire.connect(thom, jonny);
+
+			  // graph.setStart(you);
+			  // graph.setEnd(thom);
+
+
+			  // var queue = [];
+			  //   var path = [];
+			  //   queue.push(graph.start);
+			  
+			  //   while (queue.length > 0) {
+			  //     var person = queue.shift();
+			  //     if (!person.searched) {
+			  //       if (person == graph.end) {
+			  //         path.push(person);
+			  //         var next = person.parent;
+			  //         while (next) {
+			  //           path.push(next);
+			  //           next = next.parent;
+			  //         }
+			  //         console.log(path);
+			  //         break;
+			  //       } else {
+			  //         var next = person.edges;
+			  //         for (var i = 0; i < next.length; i++) {
+			  //           var neighbor = next[i];
+			  //           queue.push(neighbor);
+			  //           neighbor.parent = person;
+			  //         }
+			  //         person.searched = true;
+			  //       }
+			  //     }
+			  //   }
+			  
+			  //   for (var i = 0; i < path.length; i++) {
+			  //     path[i].highlight();
+			  //   }
 		},
 		fnCanvasDraw(){
-			this.dtP5Canvas.background(0);
-			this.dtP5Canvas.fill(255);
-			this.dtP5Canvas.rect(100,100,50,50);
+			this.dtP5Instance.background(0);
+    		this.dtGraph.simulate();
+    		this.dtGraph.show();
 			
 		}
 	}

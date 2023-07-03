@@ -23,20 +23,7 @@ function setup() {
   graph.setEnd(thom);
 
 
-  bfs();
-
-}
-
-function draw() {
-    background(0);
-    graph.simulate();
-    graph.show();
-}
-
-
-
-function bfs() {
-    var queue = [];
+  var queue = [];
     var path = [];
     queue.push(graph.start);
   
@@ -67,6 +54,19 @@ function bfs() {
     for (var i = 0; i < path.length; i++) {
       path[i].highlight();
     }
+
+}
+
+function draw() {
+    background(0);
+    graph.simulate();
+    graph.show();
+}
+
+
+
+function bfs() {
+    
 
 }
   
