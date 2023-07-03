@@ -160,7 +160,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo' 
+               description: 'A binary tree generator, using random values for nodes, and the total node input, creating folder to contain child nodes recursively.' 
             },
             { 
                id: 'breadth_first_search',

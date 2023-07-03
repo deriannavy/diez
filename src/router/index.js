@@ -17,7 +17,10 @@ const router = createRouter({
          name: 'BinaryTree',
          component: () => import('../views/BinaryTree.vue')
       }
-   ]
+   ],
+   scrollBehavior (to, from, savedPosition) {
+      return { top: 0 }
+   }
 })
 
 export default router

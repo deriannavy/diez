@@ -44,6 +44,16 @@ body{
   transform: translateY(-30px);
 }
 
+.opacity-enter-active,
+.opacity-leave-active {
+  transition: all 250ms ease;
+}
+
+.opacity-enter-from,
+.opacity-leave-to {
+  opacity: 0;
+}
+
 .hover-shadow{
   transition: all 200ms ease;
 }
