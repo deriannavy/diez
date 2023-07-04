@@ -1,5 +1,5 @@
 import BreadthFirstSearchNode from '@/classes/BreadthFirstSearchNode.js';
-
+import p5 from 'p5';
 
 export default class BreadthFirstSearchGraph {
 	constructor(p5Instance){
@@ -45,7 +45,7 @@ export default class BreadthFirstSearchGraph {
 			for (var j = 0; j < this.nodes.length; j++) {
 				if (i == j) continue;
 				var node2 = this.nodes[j];
-				var force = this.p5.Vector.sub(node1.pos, node2.pos);
+				var force = p5.Vector.sub(node1.pos, node2.pos);
 				var dist = force.mag();
 
 				var spring = 0;
@@ -63,9 +63,22 @@ export default class BreadthFirstSearchGraph {
 			}
 		}
 
+		
+
 		for (var i = 0; i < this.nodes.length; i++) {
 			var node = this.nodes[i];
-			node.pos.add(node.vel);
+
+			// if ( node.pos.x > this.p5.width ) { node.pos.x = 0 }
+			// else if(node.pos.x < 0){ node.pos.x = this.p5.width }
+
+			// else if ( node.pos.y > this.p5.height ) { node.pos.y = 0 }
+			// else if(node.pos.y < 0){ node.pos.y = this.p5.height }
+
+			// else{
+			// 	node.pos.add(node.vel);	
+			// }
+			node.pos.add(node.vel);	
+			
 		}
 
 	}
