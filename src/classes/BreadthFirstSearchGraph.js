@@ -62,35 +62,45 @@ export default class BreadthFirstSearchGraph {
 				node1.vel.mult(0.95);
 			}
 		}
-
 		
-
 		for (var i = 0; i < this.nodes.length; i++) {
 			var node = this.nodes[i];
 
-			if ( node.pos.x > this.p5.width ) { 
-				node.pos.x = 0;
-				node.vel.x = node.vel.x*-1
+			if ( node.pos.x >= this.p5.width ) { 
+				// console.log(node.label)
+				console.log(node.pos.x)
+				// node.pos.x = 0;
+				// node.pos.set(0, node.pos.y);
+				node.pos.set(this.p5.width, node.pos.y);
+				// node.vel.x = node.vel.x*-1
 			}
-			else if(node.pos.x < 0){ 
-				node.pos.x = this.p5.width 
-				node.vel.x = node.vel.x*-1
+			if(node.pos.x <= 0){ 
+				console.log(node.pos.x)
+				// node.pos.set(this.p5.width , node.pos.y);
+				// node.pos.set(this.p5.width , node.pos.y);
+				node.pos.set(0, node.pos.y);
+				// node.pos.x = this.p5.width 
+				// node.vel.x = node.vel.x*-1
 			}
 
-			else if ( node.pos.y > this.p5.height ) { 
-				node.pos.y = 0
-				node.vel.y = node.vel.y*-1
-			}
-			else if(node.pos.y < 0){ 
-				node.pos.y = this.p5.height 
-				node.vel.y = node.vel.y*-1
-			}
-
-			// else{
-			// 	node.pos.add(node.vel);	
+			// if ( node.pos.y >= this.p5.height ) { 
+			// 	console.log(node.pos.y)
+			// 	node.pos.set(node.pos.x, 0);
+			// 	// node.pos.y = 0
+			// 	// node.vel.y = node.vel.y*-1
 			// }
-			// console.log()
+			// if(node.pos.y <= 0){ 
+			// 	console.log(node.pos.y)
+			// 	node.pos.set(node.pos.x, this.p5.height);
+			// 	// node.pos.y = this.p5.height 
+			// 	// node.vel.y = node.vel.y*-1
+			// }
+
 			node.pos.add(node.vel);	
+
+			
+			// console.log()
+			// node.pos.add(node.vel);	
 			
 		}
 
