@@ -68,15 +68,28 @@ export default class BreadthFirstSearchGraph {
 		for (var i = 0; i < this.nodes.length; i++) {
 			var node = this.nodes[i];
 
-			// if ( node.pos.x > this.p5.width ) { node.pos.x = 0 }
-			// else if(node.pos.x < 0){ node.pos.x = this.p5.width }
+			if ( node.pos.x > this.p5.width ) { 
+				node.pos.x = 0;
+				node.vel.x = node.vel.x*-1
+			}
+			else if(node.pos.x < 0){ 
+				node.pos.x = this.p5.width 
+				node.vel.x = node.vel.x*-1
+			}
 
-			// else if ( node.pos.y > this.p5.height ) { node.pos.y = 0 }
-			// else if(node.pos.y < 0){ node.pos.y = this.p5.height }
+			else if ( node.pos.y > this.p5.height ) { 
+				node.pos.y = 0
+				node.vel.y = node.vel.y*-1
+			}
+			else if(node.pos.y < 0){ 
+				node.pos.y = this.p5.height 
+				node.vel.y = node.vel.y*-1
+			}
 
 			// else{
 			// 	node.pos.add(node.vel);	
 			// }
+			// console.log()
 			node.pos.add(node.vel);	
 			
 		}
