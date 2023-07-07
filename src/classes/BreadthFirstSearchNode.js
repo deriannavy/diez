@@ -11,7 +11,7 @@ export default class BreadthFirstSearchNode {
 	   );
 
 	   this.vel = p5Instance.createVector();
-	  
+	  	this.width = this.p5.textWidth(label);
 	   this.col = p5Instance.color(0);
 
 	   this.label = label;
@@ -42,10 +42,9 @@ export default class BreadthFirstSearchNode {
 			this.p5.CENTER
 		);
 
-		var w = this.p5.textWidth(this.label);
 		this.p5.stroke(255);
 		this.p5.fill(this.col);
-		this.p5.ellipse(this.pos.x, this.pos.y, w * 2, w * 2);
+		this.p5.ellipse(this.pos.x, this.pos.y, this.width * 2, this.width * 2);
 		this.p5.fill(255);
 	   this.p5.noStroke();
 	   this.p5.text(this.label, this.pos.x, this.pos.y);
