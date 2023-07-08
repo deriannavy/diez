@@ -11,6 +11,7 @@ export default class BreadthFirstSearchGraph {
 	   this.start = null;
 	   this.end = null;
 	   this.springLength = 64;
+	   this.hasConnections = false;
 		
 	}
 
@@ -53,7 +54,9 @@ export default class BreadthFirstSearchGraph {
 
 				if (node1.isConnected(node2) || node2.isConnected(node1)) {
 					spring = k * (this.springLength - dist);
-				}
+					node1.hasConnections = true;
+					node2.hasConnections = true;
+				} 
 
 				var separate = 1 / (dist * k);
 
@@ -64,48 +67,24 @@ export default class BreadthFirstSearchGraph {
 		}
 		
 		for (var i = 0; i < this.nodes.length; i++) {
-			var node = this.nodes[i];
+			let node = this.nodes[i]
 
-			if ( node.pos.x >= this.p5.width ) { 
-				// console.log(node.label)
-				// console.log(node.pos.x)
-				// node.pos.x = 0;
-				// node.pos.set(0, node.pos.y);
-				// node.pos.set(this.p5.width, node.pos.y);
+			if ( !node.hasConnections && (node.pos.x + node.width) >= this.p5.width ) { 
 				node.pos.sub(node.vel);	
-				// node.vel.x = node.vel.x*-1
 			}
-			if((node.pos.x - node.width) <= 0){ 
-				// console.log(node.pos.x);
-				// node.pos.set(this.p5.width , node.pos.y);
-				// node.pos.set(this.p5.width , node.pos.y);
-				// node.pos.set(0, node.pos.y);
-				node.pos.sub(node.vel);	
-				// node.pos.x = this.p5.width 
-				// node.vel.x = node.vel.x*-1
+			if( !node.hasConnections && (node.pos.x - node.width) <= 0){ 
+				node.pos.sub(node.vel);
 			}
 
-			
-			if ( node.pos.y >= this.p5.height ) { 
-			// 	console.log(node.pos.y)
-			// 	node.pos.set(node.pos.x, 0);
-			// 	// node.pos.y = 0
-			// 	// node.vel.y = node.vel.y*-1
+			if ( !node.hasConnections && (node.pos.y + node.width) >= this.p5.height ) {
 				node.pos.sub(node.vel);	
 			}
-			if((node.pos.y - node.width) <= 0){ 
-			// 	console.log(node.pos.y)
-			// 	node.pos.set(node.pos.x, this.p5.height);
-			// 	// node.pos.y = this.p5.height 
-			// 	// node.vel.y = node.vel.y*-1
+			if( !node.hasConnections && (node.pos.y - node.width) <= 0 ){ 
 				node.pos.sub(node.vel);	
 			}
+
 			node.pos.add(node.vel);
-			// node.pos.add(node.vel);	
-
 			
-			// console.log()
-			// node.pos.add(node.vel);	
 			
 		}
 

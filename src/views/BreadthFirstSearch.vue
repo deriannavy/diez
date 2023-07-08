@@ -19,12 +19,13 @@
 
 		<div class="col-12 col-md-6 d-flex flex-column align-items-center">
 			<div class="col col-12 col-md-10 col-lg-8">
-				<div class="input-group mb-3">
+				<div class="input-group">
 					<input type="text" 
 							 class="form-control" 
 							 placeholder="Add node" 
 							 aria-label="Add node" 
 							 aria-describedby="add-node" 
+							 maxlength="6" 
 							 v-model="dtNewNodeName">
 
 					<transition name="fade">
@@ -40,7 +41,9 @@
 							</svg>
 						</button>
 					</transition>
+
 				</div>	
+				<small class="text-warning">Max 6 letters</small>
 			</div>
 		</div>
 			
@@ -168,10 +171,9 @@ export default{
 			let nodeNames = Object.keys(this.dtGraphPeople),
 				 newNodeName = this.dtNewNodeName;
 
-			if(nodeNames.includes()){ return }
+			if(newNodeName.length > 6 || nodeNames.includes(newNodeName)){ return }
 
 			this.dtGraphPeople[newNodeName] = this.dtGraph.addNode(newNodeName);
-			
 			this.dtNewNodeName = '';
 
 
