@@ -19,17 +19,23 @@
 
 		<div class="col-12 col-md-6 d-flex flex-column align-items-center">
 			<div class="col col-12 col-md-10 col-lg-8">
-				<div class="input-group">
-					<input type="text" 
-							 class="form-control" 
-							 placeholder="Add node" 
-							 aria-label="Add node" 
-							 aria-describedby="add-node" 
-							 maxlength="6" 
-							 v-model="dtNewNodeName">
+
+				<div class="input-group input-group-sm">
+						<div class="form-floating">
+						  <input type="text" 
+						  id="new-node-name"
+								 class="form-control" 
+								 placeholder="Add node" 
+								 aria-label="Add node" 
+								 aria-describedby="add-node" 
+								 maxlength="6" 
+								 v-model="dtNewNodeName">
+						  <label for="new-node-name">New node</label>
+						</div>
+					
 
 					<transition name="fade">
-					 	<button class="btn btn-primary" 
+					 	<button class="btn btn-primary btn-sm" 
 					 			  type="button" 
 					 			  id="add-node" 
 					 			  v-if="dtNewNodeName"
@@ -43,25 +49,38 @@
 					</transition>
 
 				</div>	
-				<small class="text-warning">Max 6 letters</small>
+				<small class="text-warning">6 letters max and 15 nodes max </small>
 			</div>
 		</div>
 			
 	</section>
-
+		<button class="btn btn-secondary btn-sm d-flex flex-row justify-content-center mb-2" 
+				  	type="button"
+	  				data-bs-toggle="collapse" 
+	  				data-bs-target=".multi-collapse" 
+	  				aria-expanded="false" 
+	  				aria-controls="multiCollapseExample1 multiCollapseExample2">
+	  		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16">
+			  <path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3h9.05zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8h2.05zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1h9.05z"/>
+			</svg>
+	  	</button>
 		<section class="row d-flex justify-content-center mb-3">
 			
 
 			<div class="col col-12 btn-group mb-2">
 
-				<div class="btn-group">
+				<div class="btn-group input-group-sm">
 					<span class="input-group-text" style="border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);">
-						Node:
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-diagram-2 me-1" viewBox="0 0 16 16">
+						  <path fill-rule="evenodd" d="M6 3.5A1.5 1.5 0 0 1 7.5 2h1A1.5 1.5 0 0 1 10 3.5v1A1.5 1.5 0 0 1 8.5 6v1H11a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0V8h-5v.5a.5.5 0 0 1-1 0v-1A.5.5 0 0 1 5 7h2.5V6A1.5 1.5 0 0 1 6 4.5v-1zM8.5 5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1zM3 11.5A1.5 1.5 0 0 1 4.5 10h1A1.5 1.5 0 0 1 7 11.5v1A1.5 1.5 0 0 1 5.5 14h-1A1.5 1.5 0 0 1 3 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1zm4.5.5a1.5 1.5 0 0 1 1.5-1.5h1a1.5 1.5 0 0 1 1.5 1.5v1a1.5 1.5 0 0 1-1.5 1.5h-1A1.5 1.5 0 0 1 9 12.5v-1zm1.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+						</svg>
+						<span class="me-1">Nodes: </span>
+						<span class="badge rounded-pill text-bg-secondary">{{cpGraphNodeNames.length}}</span>
 					</span>
 				</div>
 				
 
-				<div v-for="nodeName in Object.keys(dtGraphPeople)" class="btn-group">
+				<div v-for="nodeName in cpGraphNodeNames" class="btn-group">
 
 					<input type="radio" 
 							 class="btn-check" 
@@ -70,7 +89,7 @@
 							 autocomplete="off"
 							 v-model="dtNodeSelected"
 							 :value="nodeName">
-			  		<label class="btn btn-outline-primary" :for="`identifier_${nodeName}`">
+			  		<label class="btn btn-outline-secondary btn-sm" :for="`identifier_${nodeName}`">
 			  			{{nodeName}}
 			  		</label>
 				</div>
@@ -80,13 +99,17 @@
 			
 			<div class="col btn-group">
 
-				<div class="btn-group">
+				<div class="btn-group input-group-sm">
 					<span class="input-group-text" style="border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);">
-						Connections:
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-node-plus me-2" viewBox="0 0 16 16">
+						  <path fill-rule="evenodd" d="M11 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM6.025 7.5a5 5 0 1 1 0 1H4A1.5 1.5 0 0 1 2.5 10h-1A1.5 1.5 0 0 1 0 8.5v-1A1.5 1.5 0 0 1 1.5 6h1A1.5 1.5 0 0 1 4 7.5h2.025zM11 5a.5.5 0 0 1 .5.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2A.5.5 0 0 1 11 5zM1.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1z"/>
+						</svg>
+						<span class="me-1">Connections: </span>
+						<span class="badge rounded-pill text-bg-secondary">{{cpActualNodeEdges.length}}</span>
 					</span>
 				</div>
 
-				<div v-for="nodeName in Object.keys(dtGraphPeople)" class="btn-group">
+				<div v-for="nodeName in cpGraphNodeNames" class="btn-group">
 
 				  <input type="checkbox" 
 				  			class="btn-check disabled" 
@@ -96,7 +119,7 @@
 				  			:disabled="nodeName == dtNodeSelected"
 				  			@change="fnChangeActualConnection(nodeName, !cpActualNodeEdges.includes(nodeName))">
 
-				  <label class="btn btn-outline-info" :for="`connection_${nodeName}`">{{nodeName}}</label>
+				  <label class="btn btn-outline-secondary btn-sm" :for="`connection_${nodeName}`">{{nodeName}}</label>
 				</div>
 			</div>
 		
@@ -130,7 +153,7 @@ export default{
 				'Bob': null,
 				'Alice': null,
 				'Claire': null,
-				'Anuj': null,
+				'Sam': null,
 				'Peggy': null,
 				'Thom': null,
 				'Jonny': null 
@@ -171,7 +194,7 @@ export default{
 
 
 			this.dtGraphPeople['Bob'].connect(
-				this.dtGraphPeople['Anuj'], 
+				this.dtGraphPeople['Sam'], 
 				this.dtGraphPeople['Peggy']
 			);
 
@@ -186,38 +209,38 @@ export default{
 			this.dtGraph.setEnd( this.dtGraphPeople['Thom'] );
 
 
-			// let queue = [], path = [];
-			// queue.push(this.dtGraph.start);
+			let queue = [], path = [];
+			queue.push(this.dtGraph.start);
 			  
-			// while (queue.length > 0) {
-			// 	let person = queue.shift();
-			// 	if (!person.searched) {
-			// 		if (person == this.dtGraph.end) {
-			// 			path.push(person);
+			while (queue.length > 0) {
+				let person = queue.shift();
+				if (!person.searched) {
+					if (person == this.dtGraph.end) {
+						path.push(person);
 
-			// 			let next = person.parent;
-			// 			while (next) {
-			// 				path.push(next);
-			// 				next = next.parent;
-			// 			}
+						let next = person.parent;
+						while (next) {
+							path.push(next);
+							next = next.parent;
+						}
 						
-			// 			break;
+						break;
 
-			// 		} else {
+					} else {
 
-			// 			let next = person.edges;
-			// 			for (let i = 0; i < next.length; i++) {
-			// 				let neighbor = next[i];
-			// 				queue.push(neighbor);
-			// 				neighbor.parent = person;
-			// 			}
-			// 			person.searched = true;
+						let next = person.edges;
+						for (let i = 0; i < next.length; i++) {
+							let neighbor = next[i];
+							queue.push(neighbor);
+							neighbor.parent = person;
+						}
+						person.searched = true;
 
-			// 		}
-			// 	}
-			// }
+					}
+				}
+			}
 			  
-			// for (let i = 0; i < path.length; i++) { path[i].highlight(); }
+			for (let i = 0; i < path.length; i++) { path[i].highlight(); }
 		},
 		fnCanvasDraw(){
 			this.dtP5Instance.background(0);
@@ -228,7 +251,8 @@ export default{
 			let nodeNames = Object.keys(this.dtGraphPeople),
 				 newNodeName = this.dtNewNodeName;
 
-			if(newNodeName.length > 6 || nodeNames.includes(newNodeName)){ return }
+			if(nodeNames.length >= 15){ return }
+			else if(newNodeName.length > 6 || nodeNames.includes(newNodeName)){ return }
 
 			this.dtGraphPeople[newNodeName] = this.dtGraph.addNode(newNodeName);
 			this.dtNewNodeName = '';
@@ -240,7 +264,6 @@ export default{
 					this.dtGraphPeople[nodeName]
 				);
 			} else {
-				console.log(this.dtGraphPeople[nodeName])
 				this.dtGraphPeople[this.dtNodeSelected].disconnect(
 					this.dtGraphPeople[nodeName]
 				);
@@ -254,6 +277,9 @@ export default{
 				 nodeEdges = actualNode ? actualNode.edges : [];
 
 			return nodeEdges.map(nodeConnected => nodeConnected.label);
+		},
+		cpGraphNodeNames(){
+			return Object.keys(this.dtGraphPeople);
 		}
 	}
 }
