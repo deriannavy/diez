@@ -49,11 +49,18 @@
 			
 	</section>
 
-		<section class="row d-flex justify-content-center">
+		<section class="row d-flex justify-content-center mb-3">
 			
 
-			<div class="col-12">Node:</div>
-			<div class="col col-12 btn-group">
+			<div class="col col-12 btn-group mb-2">
+
+				<div class="btn-group">
+					<span class="input-group-text" style="border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);">
+						Node:
+					</span>
+				</div>
+				
+
 				<div v-for="nodeName in Object.keys(dtGraphPeople)" class="btn-group">
 
 					<input type="radio" 
@@ -69,9 +76,15 @@
 				</div>
 
 			</div>
+
 			
-			<div class="col-12">Connections:</div>
 			<div class="col btn-group">
+
+				<div class="btn-group">
+					<span class="input-group-text" style="border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);">
+						Connections:
+					</span>
+				</div>
 
 				<div v-for="nodeName in Object.keys(dtGraphPeople)" class="btn-group">
 
@@ -89,8 +102,7 @@
 		
 	</section>
 
-	<section class="">
-		<div class="col-6"  ref="canvas"></div>
+	<section class="col-12" ref="canvas">
 	</section>
 </main>
 </template>
