@@ -27,6 +27,15 @@ export default class BreadthFirstSearchNode {
 		}
 	}
 
+	disconnect() {
+
+		for (var i = 0; i < arguments.length; i++) {
+			console.log(this.edges.map(e => e.label))
+			console.log(this.edges.filter(nodeEdge => !nodeEdge.label == arguments[i].label))
+			this.edges = this.edges.filter(nodeEdge => nodeEdge.label != arguments[i].label);
+		}
+	}
+
 	isConnected(neighbor) {
 	   var index = this.edges.indexOf(neighbor);
 

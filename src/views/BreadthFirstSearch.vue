@@ -1,5 +1,5 @@
 <template>
-<main class="container col-xxl-10 px-4 py-5">
+<main ref="container" class="container col-xxl-10 px-4 py-5">
 
 	<section class="row d-flex align-items-center">
 		<div class="col col-12 col-md-6">
@@ -49,7 +49,48 @@
 			
 	</section>
 
-	<section class="d-flex justify-content-center text-center" ref="canvas">
+		<section class="row d-flex justify-content-center">
+			
+
+			<div class="col-12">Node:</div>
+			<div class="col col-12 btn-group">
+				<div v-for="nodeName in Object.keys(dtGraphPeople)" class="btn-group">
+
+					<input type="radio" 
+							 class="btn-check" 
+							 name="btnradio" 
+							 :id="`identifier_${nodeName}`" 
+							 autocomplete="off"
+							 v-model="dtNodeSelected"
+							 :value="nodeName">
+			  		<label class="btn btn-outline-primary" :for="`identifier_${nodeName}`">
+			  			{{nodeName}}
+			  		</label>
+				</div>
+
+			</div>
+			
+			<div class="col-12">Connections:</div>
+			<div class="col btn-group">
+
+				<div v-for="nodeName in Object.keys(dtGraphPeople)" class="btn-group">
+
+				  <input type="checkbox" 
+				  			class="btn-check disabled" 
+				  			:id="`connection_${nodeName}`" 
+				  			autocomplete="off" 
+				  			:checked="cpActualNodeEdges.includes(nodeName)"
+				  			:disabled="nodeName == dtNodeSelected"
+				  			@change="fnChangeActualConnection(nodeName, !cpActualNodeEdges.includes(nodeName))">
+
+				  <label class="btn btn-outline-info" :for="`connection_${nodeName}`">{{nodeName}}</label>
+				</div>
+			</div>
+		
+	</section>
+
+	<section class="">
+		<div class="col-6"  ref="canvas"></div>
 	</section>
 </main>
 </template>
@@ -82,7 +123,8 @@ export default{
 				'Thom': null,
 				'Jonny': null 
 			},
-			dtNewNodeName: ''
+			dtNewNodeName: '',
+			dtNodeSelected: 'You',
 			
 		}
 	},
@@ -97,7 +139,10 @@ export default{
 			
 		},
 		fnCanvasSetUp(){
-			this.dtP5Canvas.createCanvas( window.innerWidth / 2, window.innerHeight / 2 );
+
+			let width =  this.$refs.container.clientWidth
+
+			this.dtP5Canvas.createCanvas( width, window.innerHeight / 2 );
 
 			this.dtGraph = new BreadthFirstSearchGraph(this.dtP5Canvas);
 			
@@ -175,10 +220,28 @@ export default{
 
 			this.dtGraphPeople[newNodeName] = this.dtGraph.addNode(newNodeName);
 			this.dtNewNodeName = '';
+		},
+		fnChangeActualConnection(nodeName, nodeState){
 
+			if (nodeState) {
+				this.dtGraphPeople[this.dtNodeSelected].connect(
+					this.dtGraphPeople[nodeName]
+				);
+			} else {
+				console.log(this.dtGraphPeople[nodeName])
+				this.dtGraphPeople[this.dtNodeSelected].disconnect(
+					this.dtGraphPeople[nodeName]
+				);
+			}
 
+		}
+	},
+	computed: {
+		cpActualNodeEdges(){
+			let actualNode = this.dtGraphPeople[ this.dtNodeSelected ],
+				 nodeEdges = actualNode ? actualNode.edges : [];
 
-
+			return nodeEdges.map(nodeConnected => nodeConnected.label);
 		}
 	}
 }
