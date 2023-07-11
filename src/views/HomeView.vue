@@ -170,7 +170,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: '?' 
+               description: 'An example of graph search algorithm here you can add nodes, and connections, at first instance you can see the example nodes with names, and a search from you to Thom using bfs.' 
             },
             { 
                id: 'lexicographic_order',

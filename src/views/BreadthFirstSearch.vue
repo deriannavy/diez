@@ -13,8 +13,7 @@
 
 			<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Breadth first search</h1>	
 			
-			<p class="col col-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua.</p>		
+			<p class="col col-12">An example of graph search algorithm here you can add nodes, and connections, at first instance you can see the example nodes with names, and a search from you to Thom using bfs.</p>		
 		</div>
 
 		<div class="col-12 col-md-6 d-flex flex-column align-items-center">
@@ -52,7 +51,7 @@
 				<small class="text-warning">6 letters max and 15 nodes max </small>
 			</div>
 			<div class="col col-12 col-md-10 col-lg-8">
-				<button class="btn btn-secondary btn-sm d-flex flex-row justify-content-center mb-2" 
+				<button class="btn btn-secondary btn-sm d-flex flex-row justify-content-center" 
 						  type="button" 
 						  data-bs-toggle="collapse" 
 						  data-bs-target="#collapseConfig" 
