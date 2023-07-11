@@ -27,6 +27,13 @@ export default class BreadthFirstSearchNode {
 		}
 	}
 
+	disconnect() {
+
+		for (var i = 0; i < arguments.length; i++) {
+			this.edges = this.edges.filter(nodeEdge => nodeEdge.label != arguments[i].label);
+		}
+	}
+
 	isConnected(neighbor) {
 	   var index = this.edges.indexOf(neighbor);
 
@@ -38,9 +45,7 @@ export default class BreadthFirstSearchNode {
 	}
 
 	show() {
-		this.p5.textAlign(
-			this.p5.CENTER
-		);
+		this.p5.textAlign(this.p5.CENTER);
 
 		this.p5.stroke(255);
 		this.p5.fill(this.col);
@@ -51,7 +56,7 @@ export default class BreadthFirstSearchNode {
 	}
 
 	highlight() {
-	    this.col = this.p5.color(0, 150, 0);
+	    this.col = this.p5.color(80, 80, 80);
 	}
 
 	showEdges() {
