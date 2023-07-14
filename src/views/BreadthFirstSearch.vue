@@ -51,7 +51,7 @@
 				<small class="text-warning">6 letters max and 15 nodes max </small>
 			</div>
 			<div class="col col-12 col-md-10 col-lg-8">
-				<button class="btn btn-secondary btn-sm d-flex flex-row justify-content-center" 
+				<button class="btn btn-secondary btn-sm d-flex flex-row justify-content-center align-items-center" 
 						  type="button" 
 						  data-bs-toggle="collapse" 
 						  data-bs-target="#collapseConfig" 
@@ -186,10 +186,12 @@ export default{
 			
 		},
 		fnCanvasSetUp(){
+			let containterWidth =  this.$refs.container.clientWidth,
+				 computedStyle = getComputedStyle(this.$refs.container);
+				 
+			let canvasWidth = containterWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
 
-			let width =  this.$refs.container.clientWidth
-
-			this.dtP5Canvas.createCanvas( width, window.innerHeight / 2 );
+			this.dtP5Canvas.createCanvas( canvasWidth, window.innerHeight / 2 );
 
 			this.dtGraph = new BreadthFirstSearchGraph(this.dtP5Canvas);
 			
