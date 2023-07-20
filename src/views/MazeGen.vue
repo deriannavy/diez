@@ -25,7 +25,9 @@ export default{
 			sketch.draw = this.fnCanvasDraw;
 
 			
-		}
+		},
+		fnCanvasSetUp(){},
+		fnCanvasDraw(){}
 	}
 }
 </script>
