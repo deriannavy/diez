@@ -34,7 +34,17 @@ export default{
 	data(){
 		return {
 			dtP5Instance: null,
-			dtP5Canvas: null
+			dtP5Canvas: null,
+
+
+			dtMazeCols: null, 
+			dtMazeRows: null,
+			dtMazeWidth: 10
+
+			 
+			dtMazegrid: [], 
+			dtMazecurrent: null
+			dtMazeStack: []
 		}
 	},
 	methods:{
@@ -48,7 +58,19 @@ export default{
 			
 		},
 		fnCanvasSetUp(){
+			cols = floor(width / w);
+		   rows = floor(height / w);
 
+		    for (let j = 0; j < rows; j++) {
+		        for (let i = 0; i < rows; i++) {
+		            var cell = new Cell(i, j);
+		            grid.push(cell);
+		        
+		        }   
+		        
+		    }
+
+		    current = grid[0];
 		},
 		fnCanvasDraw(){
 

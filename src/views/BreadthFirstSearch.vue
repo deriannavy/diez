@@ -69,7 +69,6 @@
 			
 	</section>
 
-
 	<section class="row d-flex justify-content-center mb-3">
 
 	  	<div class="collapse col-12" id="collapseConfig">
