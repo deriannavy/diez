@@ -58,19 +58,18 @@ export default{
 			
 		},
 		fnCanvasSetUp(){
-			cols = floor(width / w);
-		   rows = floor(height / w);
+			this.dtMazeCols = floor(width / this.dtMazeWidth);
+		   this.dtMazeRows = floor(height / this.dtMazeWidth);
 
-		    for (let j = 0; j < rows; j++) {
-		        for (let i = 0; i < rows; i++) {
-		            var cell = new Cell(i, j);
-		            grid.push(cell);
-		        
-		        }   
-		        
-		    }
+			for (let j = 0; j < this.dtMazeRows; j++) {
+				for (let i = 0; i < this.dtMazeRows; i++) {
+					this.dtMazegrid.push(
+						new Cell(i, j)
+					);
+				}
+			}
 
-		    current = grid[0];
+		   this.dtMazecurrent = grid[0];
 		},
 		fnCanvasDraw(){
 
