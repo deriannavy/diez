@@ -69,7 +69,6 @@
 			
 	</section>
 
-	
 
 	<section class="row d-flex justify-content-center mb-3">
 
@@ -132,8 +131,6 @@
 				</div>    
 		  </div>
 		</div>			
-
-		
 
 	</section>
 
