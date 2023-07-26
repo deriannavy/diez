@@ -25,6 +25,8 @@
 <script setup>
 // Libs
 import p5 from 'p5';
+// Classes
+import MazeGenCell from '@/classes/MazeGenCell.js';
 </script>
 <script>
 export default{
