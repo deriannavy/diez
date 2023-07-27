@@ -7,21 +7,18 @@ export default class MazeGenCell {
     	this.visited = false;
 	}
 
-	function index(i, j) {
+	index(i, j) {
 
-	   if (i < 0 || j < 0 || i > cols - 1 || j > rows - 1) 
-	        return -1;
-
-	    return i + j * cols;
+	   if (i < 0 || j < 0 || i > cols - 1 || j > rows - 1) return -1;
+	   return i + j * cols;
 	}
 
-	this.checkNeighbors = function() {
+	checkNeighbors() {
         var neighbors = [],
-        
-        top =    grid[index(i    , j - 1)],
-        right =  grid[index(i + 1, j    )],
-        bottom = grid[index(i    , j + 1)],
-        left =   grid[index(i - 1, j    )];
+		      top = grid[this.index(i    , j - 1)],
+				right = grid[this.index(i + 1, j    )],
+		      bottom = grid[this.index(i    , j + 1)],
+		      left = grid[this.index(i - 1, j    )];
 
         if (top && !top.visited) neighbors.push(top);
 
@@ -31,7 +28,6 @@ export default class MazeGenCell {
 
         if (left && !left.visited) neighbors.push(left);
 
-
         if (neighbors.length > 0) {
 
             var r = floor(random(0, neighbors.length));
@@ -40,23 +36,20 @@ export default class MazeGenCell {
         }
         else { return undefined; }
 
-
-
-
     }
 
-    this.highlight = function() {
+    highlight() {
         var x = this.i * w,
-        y = this.j * w;
+        		y = this.j * w;
 
         noStroke(255);
         fill(0, 0, 255, 100);
         rect(x, y, w, w);
     }
 
-    this.show = function() {
+    show() {
         var x = this.i * w,
-        y = this.j * w;
+        		y = this.j * w;
         
         stroke(255);
 
