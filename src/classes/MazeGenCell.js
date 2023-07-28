@@ -1,10 +1,14 @@
+import p5 from 'p5';
+
 export default class MazeGenCell {
 
-	constructor(i, j){
+	constructor(p5Canva, i, j, size){
 		this.i = i;
     	this.j = j;
     	this.walls = [true, true, true, true];
     	this.visited = false;
+    	this.size = size;
+    	this.p5Canva = p5Canva;
 	}
 
 	index(i, j) {
@@ -13,12 +17,12 @@ export default class MazeGenCell {
 	   return i + j * cols;
 	}
 
-	checkNeighbors() {
+	checkNeighbors(grid) {
         var neighbors = [],
-		      top = grid[this.index(i    , j - 1)],
-				right = grid[this.index(i + 1, j    )],
-		      bottom = grid[this.index(i    , j + 1)],
-		      left = grid[this.index(i - 1, j    )];
+		      top = grid[this.index(this.i    , this.j - 1)],
+				right = grid[this.index(this.i + 1, this.j    )],
+		      bottom = grid[this.index(this.i    , this.j + 1)],
+		      left = grid[this.index(this.i - 1, this.j    )];
 
         if (top && !top.visited) neighbors.push(top);
 
@@ -39,32 +43,32 @@ export default class MazeGenCell {
     }
 
     highlight() {
-        var x = this.i * w,
-        		y = this.j * w;
+        var x = this.i * this.size,
+        		y = this.j * this.size;
 
-        noStroke(255);
-        fill(0, 0, 255, 100);
-        rect(x, y, w, w);
+        this.p5Canva.noStroke(255);
+        this.p5Canva.fill(0, 0, 255, 100);
+        this.p5Canva.rect(x, y, this.size, this.size);
     }
 
     show() {
-        var x = this.i * w,
-        		y = this.j * w;
+        var x = this.i * this.size,
+        		y = this.j * this.size;
         
-        stroke(255);
+        this.p5Canva.stroke(255);
 
-        if(this.walls[0]) line(x     ,y     ,x + w ,y    );
+        if(this.walls[0]) this.p5Canva.line(x     ,y     ,x + this.size ,y    );
 
-        if(this.walls[1]) line(x + w ,y     ,x + w ,y + w);
+        if(this.walls[1]) this.p5Canva.line(x + this.size ,y     ,x + this.size ,y + this.size);
 
-        if(this.walls[2]) line(x + w ,y + w ,x     ,y + w);
+        if(this.walls[2]) this.p5Canva.line(x + this.size ,y + this.size ,x     ,y + this.size);
 
-        if(this.walls[3]) line(x     ,y + w ,x     ,y    );
+        if(this.walls[3]) this.p5Canva.line(x     ,y + this.size ,x     ,y    );
 
         if (this.visited) {
-            noStroke();
-            fill(255, 0, 255, 100);
-            rect(x, y, w, w);
+            this.p5Canva.noStroke();
+            this.p5Canva.fill(255, 0, 255, 100);
+            this.p5Canva.rect(x, y, this.size, this.size);
         }
     }
 

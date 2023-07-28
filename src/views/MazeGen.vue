@@ -41,11 +41,11 @@ export default{
 
 			dtMazeCols: null, 
 			dtMazeRows: null,
-			dtMazeWidth: 10
+			dtMazeWidth: 10,
 
 			 
 			dtMazegrid: [], 
-			dtMazecurrent: null
+			dtMazecurrent: null,
 			dtMazeStack: []
 		}
 	},
@@ -60,21 +60,69 @@ export default{
 			
 		},
 		fnCanvasSetUp(){
-			this.dtMazeCols = floor(width / this.dtMazeWidth);
-		   this.dtMazeRows = floor(height / this.dtMazeWidth);
+			let containterWidth =  this.$refs.container.clientWidth,
+				 computedStyle = getComputedStyle(this.$refs.container);
+				 
+			let canvasWidth = containterWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight),
+				canvasHeight = window.innerHeight / 2;
+
+			this.dtP5Canvas.createCanvas( canvasWidth,  canvasHeight);
+
+			this.dtMazeCols = Math.floor(canvasWidth / this.dtMazeWidth);
+		   this.dtMazeRows = Math.floor(canvasHeight / this.dtMazeWidth);
 
 			for (let j = 0; j < this.dtMazeRows; j++) {
 				for (let i = 0; i < this.dtMazeRows; i++) {
 					this.dtMazegrid.push(
-						new Cell(i, j)
+						new MazeGenCell(this.dtP5Canvas, i, j, this.dtMazeWidth)
 					);
 				}
 			}
 
-		   this.dtMazecurrent = grid[0];
+		   this.dtMazecurrent = this.dtMazegrid[0];
 		},
 		fnCanvasDraw(){
 
+			this.dtP5Instance.background(51);
+
+			for (let i = 0; i < this.dtMazegrid.length; i++) this.dtMazegrid[i].show();
+
+			this.dtMazecurrent.visited = true;
+
+			this.dtMazecurrent.highlight();
+
+			var next = this.dtMazecurrent.checkNeighbors(this.dtMazegrid);
+			if(next){
+				next.visited = true;
+
+				this.dtMazeStack.push(this.dtMazecurrent);
+
+				this.fnRemoveWalls(this.dtMazecurrent, next);        
+
+				this.dtMazecurrent = next;
+			} else if (this.dtMazeStack.length > 0) {
+				this.dtMazecurrent = this.dtMazeStack.pop();
+			}
+		},
+		fnRemoveWalls(a, b) {
+
+			var x = a.i - b.i;
+			if (x === 1) {
+				a.walls[3] = false,
+				b.walls[1] = false;
+			} else if (x === -1){
+				a.walls[1] = false,
+				b.walls[3] = false;
+			}
+
+			var y = a.j - b.j;
+			if (y === 1) {
+				a.walls[0] = false,
+				b.walls[2] = false;
+			} else if (y === -1){
+				a.walls[2] = false,
+				b.walls[0] = false;
+			}
 		}
 	}
 }
