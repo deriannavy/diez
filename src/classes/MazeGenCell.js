@@ -2,9 +2,11 @@ import p5 from 'p5';
 
 export default class MazeGenCell {
 
-	constructor(p5Canva, i, j, size){
+	constructor(p5Canva, i, j, size, cols, rows){
 		this.i = i;
     	this.j = j;
+    	this.cols = cols;
+    	this.rows = rows;
     	this.walls = [true, true, true, true];
     	this.visited = false;
     	this.size = size;
@@ -13,8 +15,8 @@ export default class MazeGenCell {
 
 	index(i, j) {
 
-	   if (i < 0 || j < 0 || i > cols - 1 || j > rows - 1) return -1;
-	   return i + j * cols;
+	   if (i < 0 || j < 0 || i > this.cols - 1 || j > this.rows - 1) return -1;
+	   return i + j * this.cols;
 	}
 
 	checkNeighbors(grid) {
@@ -34,7 +36,7 @@ export default class MazeGenCell {
 
         if (neighbors.length > 0) {
 
-            var r = floor(random(0, neighbors.length));
+            var r = Math.floor(Math.random() * (neighbors.length - 1) + 0);
             return neighbors[r];
 
         }

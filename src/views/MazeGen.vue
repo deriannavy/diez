@@ -74,7 +74,14 @@ export default{
 			for (let j = 0; j < this.dtMazeRows; j++) {
 				for (let i = 0; i < this.dtMazeRows; i++) {
 					this.dtMazegrid.push(
-						new MazeGenCell(this.dtP5Canvas, i, j, this.dtMazeWidth)
+						new MazeGenCell(
+							this.dtP5Canvas, 
+							i, 
+							j, 
+							this.dtMazeWidth, 
+							this.dtMazeCols, 
+							this.dtMazeRows
+						)
 					);
 				}
 			}
