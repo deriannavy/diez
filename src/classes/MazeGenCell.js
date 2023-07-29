@@ -37,7 +37,6 @@ export default class MazeGenCell {
         if (neighbors.length > 0) {
 
             var r = Math.floor(Math.random() * neighbors.length + 0);
-            console.log(r)
             return neighbors[r];
 
         }
@@ -50,7 +49,7 @@ export default class MazeGenCell {
         		y = this.j * this.size;
 
         this.p5Canva.noStroke(255);
-        this.p5Canva.fill(0, 0, 255, 100);
+        this.p5Canva.fill(255, 255, 255, 100);
         this.p5Canva.rect(x, y, this.size, this.size);
     }
 
@@ -70,7 +69,7 @@ export default class MazeGenCell {
 
         if (this.visited) {
             this.p5Canva.noStroke();
-            this.p5Canva.fill(255, 0, 255, 100);
+            this.p5Canva.fill(200, 200, 200, 100);
             this.p5Canva.rect(x, y, this.size, this.size);
         }
     }
