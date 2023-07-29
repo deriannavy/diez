@@ -34,6 +34,7 @@ function Cell(i, j) {
         if (neighbors.length > 0) {
 
             var r = floor(random(0, neighbors.length));
+            console.log(r)
             return neighbors[r];
 
         }

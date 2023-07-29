@@ -36,7 +36,8 @@ export default class MazeGenCell {
 
         if (neighbors.length > 0) {
 
-            var r = Math.floor(Math.random() * (neighbors.length - 1) + 0);
+            var r = Math.floor(Math.random() * neighbors.length + 0);
+            console.log(r)
             return neighbors[r];
 
         }
