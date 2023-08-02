@@ -8,6 +8,7 @@ function index(i, j) {
 
 
 function Cell(i, j) {
+
     this.i = i;
     this.j = j;
     this.walls = [true, true, true, true];
@@ -33,6 +34,7 @@ function Cell(i, j) {
         if (neighbors.length > 0) {
 
             var r = floor(random(0, neighbors.length));
+            console.log(r)
             return neighbors[r];
 
         }
