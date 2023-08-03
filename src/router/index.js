@@ -26,6 +26,11 @@ const router = createRouter({
          path: '/case/maze-gen',
          name: 'MazeGen',
          component: () => import('../views/MazeGen.vue')
+      },
+      {
+         path: '/case/lexicographic-order',
+         name: 'MazeGen',
+         component: () => import('../views/LexicographicOrder.vue')
       }
    ],
    scrollBehavior (to, from, savedPosition) {
