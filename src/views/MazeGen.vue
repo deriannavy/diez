@@ -68,8 +68,8 @@ export default{
 
 			this.dtP5Canvas.createCanvas( canvasWidth,  canvasHeight);
 
-			this.dtMazeCols = Math.floor(canvasWidth / this.dtMazeWidth);
-		   this.dtMazeRows = Math.floor(canvasHeight / this.dtMazeWidth);
+			this.dtMazeCols = Math.floor(canvasWidth / this.dtMazeWidth - 20);
+		   this.dtMazeRows = Math.floor(canvasHeight / this.dtMazeWidth - 10);
 
 			for (let j = 0; j < this.dtMazeRows; j++) {
 				for (let i = 0; i < this.dtMazeCols; i++) {
@@ -133,7 +133,3 @@ export default{
 	}
 }
 </script>
-
-<style type="text/css">
-
-</style>

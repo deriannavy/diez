@@ -45,8 +45,7 @@ export default class MazeGenCell {
     }
 
     highlight() {
-        var x = this.i * this.size,
-        		y = this.j * this.size;
+        var x = this.i * this.size  + 100, y = this.j * this.size + 50;
 
         this.p5Canva.noStroke(255);
         this.p5Canva.fill(255, 255, 255, 100);
@@ -54,8 +53,7 @@ export default class MazeGenCell {
     }
 
     show() {
-        var x = this.i * this.size,
-        		y = this.j * this.size;
+        var x = this.i * this.size  + 100, y = this.j * this.size + 50;
         
         this.p5Canva.stroke(255);
 

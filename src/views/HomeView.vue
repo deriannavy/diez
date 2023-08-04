@@ -179,7 +179,7 @@ export default{
                url: '/case/lexicographic-order',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: '?' 
             },
             {  
