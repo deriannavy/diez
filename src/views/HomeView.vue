@@ -189,7 +189,7 @@ export default{
                url: '/case/maze-gen',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Published', bgColor: 'warning', published: true },
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: '?' 
             },
             { 
