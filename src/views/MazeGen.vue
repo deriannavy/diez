@@ -13,7 +13,8 @@
 
 			<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Maze gen</h1>	
 			
-			<p class="col col-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. as sdd dcdc dcsdcsd sdsdc </p>
+			<p class="col col-12">Maze generator using the class-based box registration and the p5 library.</p>
+
 		</div>			
 	</section>
 

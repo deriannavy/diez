@@ -189,8 +189,8 @@ export default{
                url: '/case/maze-gen',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Published', bgColor: 'warning', published: true },
-               description: '?' 
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
+               description: 'Maze generator using the class-based box registration and the p5 library.' 
             },
             { 
                id: 'multiperceptron',

@@ -29,7 +29,7 @@ const router = createRouter({
       },
       {
          path: '/case/lexicographic-order',
-         name: 'MazeGen',
+         name: 'LexicographicOrder',
          component: () => import('../views/LexicographicOrder.vue')
       }
    ],
