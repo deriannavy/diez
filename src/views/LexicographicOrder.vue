@@ -12,7 +12,7 @@ import MazeGenCell from '@/classes/MazeGenCell.js';
 export default{
 	mounted(){
 		// this.$refs.canvas
-		this.dtP5Instance = new p5(this.fnCanvasInitializer, );
+		this.dtP5Instance = new p5(this.fnCanvasInitializer, this.$refs.canvas);
 	},
 }
 </script>
