@@ -14,7 +14,8 @@ export default{
 	},
 	data(){
 		return {
-			dtP5Canvas
+			dtP5Canvas,
+			dtVals: [0, 1, 2, 3, 4, 5, 6]
 		}
 	},
 	methods:{
@@ -38,12 +39,11 @@ export default{
 
 		},
 		fnCanvasDraw(){
-			console.log(vals);
 
 		    var largestI = -1;
-		    for (let i = 0; i < vals.length; i++){
+		    for (let i = 0; i < this.dtVals.length; i++){
 		        
-		        if (vals[i] < vals[i + 1]) largestI = i;    
+		        if (this.dtVals[i] < this.dtVals[i + 1]) largestI = i;    
 		    } 
 		    
 
@@ -53,27 +53,27 @@ export default{
 		    }
 
 		    var largestJ = -1;
-		    for (let j = 0; j < vals.length; j++) {
+		    for (let j = 0; j < this.dtVals.length; j++) {
 		        
-		        if (vals[largestI] < vals[j]) largestJ = j;    
+		        if (this.dtVals[largestI] < this.dtVals[j]) largestJ = j;    
 		    }
 
 
-		    swap(vals, largestI, largestJ);
+		    this.swap(this.dtVals, largestI, largestJ);
 
 
 
-		    let endArray = vals.splice(largestI + 1);
+		    let endArray = this.dtVals.splice(largestI + 1);
 		    endArray.reverse();
-		    vals = vals.concat(endArray);
+		    this.dtVals = this.dtVals.concat(endArray);
 
-		    background(0);
-		    textSize(64);
-		    var s = vals.join('');
+		    // background(0);
+		    // textSize(64);
+		    // var s = this.dtVals.join('');
 
-		    fill(255);
+		    // fill(255);
 
-		    text(s, 20, height / 2)
+		    // text(s, 20, height / 2)
 		},
 		fnSwap(a, i, j){
 		    var temp = a[i];
