@@ -48,7 +48,7 @@ export default{
 		    
 
 		    if (largestI == -1) {
-		        noLoop();
+		        // noLoop();
 		        console.log('finished');
 		    }
 
