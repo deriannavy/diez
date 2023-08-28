@@ -35,8 +35,14 @@ export default{
 	},
 	data(){
 		return {
+			dtP5Instance: null,
 			dtP5Canvas: null,
-			dtVals: [0, 1, 2, 3, 4, 5, 6]
+
+			dtCanvasWidth: null,
+			dtCanvasHeight: null,
+			dtVals: [0, 1, 2, 3, 4, 5, 6],
+
+
 		}
 	},
 	methods:{
@@ -53,10 +59,11 @@ export default{
 			let containterWidth =  this.$refs.container.clientWidth,
 				 computedStyle = getComputedStyle(this.$refs.container);
 				 
-			let canvasWidth = containterWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight),
-				canvasHeight = window.innerHeight / 2;
+			this.dtCanvasWidth = containterWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight),
+			this.dtCanvasHeight = window.innerHeight / 2;
 
-			this.dtP5Canvas.createCanvas( canvasWidth,  canvasHeight);
+			this.dtP5Canvas.createCanvas( this.dtCanvasWidth,  this.dtCanvasHeight);
+			
 
 		},
 		fnCanvasDraw(){
@@ -69,7 +76,7 @@ export default{
 		    
 
 		    if (largestI == -1) {
-		        // noLoop();
+		        this.dtP5Canvas.noLoop();
 		        console.log('finished');
 		    }
 
@@ -80,7 +87,7 @@ export default{
 		    }
 
 
-		    this.swap(this.dtVals, largestI, largestJ);
+		    this.fnSwap(this.dtVals, largestI, largestJ);
 
 
 
@@ -88,13 +95,15 @@ export default{
 		    endArray.reverse();
 		    this.dtVals = this.dtVals.concat(endArray);
 
-		    // background(0);
-		    // textSize(64);
-		    // var s = this.dtVals.join('');
+		    this.dtP5Instance.background(51);
+		    this.dtP5Instance.textSize(64);
 
-		    // fill(255);
-
-		    // text(s, 20, height / 2)
+		    this.dtP5Instance.fill(255);
+		    this.dtP5Instance.text(
+		    	this.dtVals.join(''), 
+		    	(this.dtCanvasWidth / 2) - 120, 
+		    	this.dtCanvasHeight / 2
+		    );
 		},
 		fnSwap(a, i, j){
 		    var temp = a[i];
