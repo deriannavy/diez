@@ -180,7 +180,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: '?' 
+               description: 'lexicographic order shows all possible combination solutions by skipping over the options already generated, making it more optimal.' 
             },
             {  
                id: 'maze_gen',

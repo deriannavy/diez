@@ -13,7 +13,7 @@
 
 				<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Lexicographic order</h1>	
 				
-				<p class="col col-12">Lexicographical order shows all possible combination solutions.</p>
+				<p class="col col-12">lexicographic order shows all possible combination solutions by skipping over the options already generated, making it more optimal</p>
 
 			</div>			
 		</section>
