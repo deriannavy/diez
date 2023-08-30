@@ -13,7 +13,7 @@
 
 				<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Lexicographic order</h1>	
 				
-				<p class="col col-12">Maze generator using the class-based box registration and the p5 library.</p>
+				<p class="col col-12">Lexicographical order shows all possible combination solutions.</p>
 
 			</div>			
 		</section>
