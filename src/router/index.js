@@ -31,6 +31,11 @@ const router = createRouter({
          path: '/case/lexicographic-order',
          name: 'LexicographicOrder',
          component: () => import('../views/LexicographicOrder.vue')
+      },
+      {
+         path: '/case/multiperceptron',
+         name: 'Multiperceptron',
+         component: () => import('../views/Multiperceptron.vue')
       }
    ],
    scrollBehavior (to, from, savedPosition) {
