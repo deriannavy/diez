@@ -21,6 +21,21 @@ const router = createRouter({
          path: '/case/breadth-first-search',
          name: 'BreadthFirstSearch',
          component: () => import('../views/BreadthFirstSearch.vue')
+      },
+      {
+         path: '/case/maze-gen',
+         name: 'MazeGen',
+         component: () => import('../views/MazeGen.vue')
+      },
+      {
+         path: '/case/lexicographic-order',
+         name: 'LexicographicOrder',
+         component: () => import('../views/LexicographicOrder.vue')
+      },
+      {
+         path: '/case/multiperceptron',
+         name: 'Multiperceptron',
+         component: () => import('../views/Multiperceptron.vue')
       }
    ],
    scrollBehavior (to, from, savedPosition) {

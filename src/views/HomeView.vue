@@ -170,7 +170,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: 'An example of graph search algorithm here you can add nodes, and connections, at first instance you can see the example nodes with names, and a search from you to Thom using bfs.' 
+               description: 'An example of graph search algorithm here you can add nodes, and connections, at first instance you can see the example nodes with names, and a search from you to Thom using bfs.'
             },
             { 
                id: 'lexicographic_order',
@@ -179,8 +179,8 @@ export default{
                url: '/case/lexicographic-order',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: '?' 
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
+               description: 'lexicographic order shows all possible combination solutions by skipping over the options already generated, making it more optimal.' 
             },
             {  
                id: 'maze_gen',
@@ -189,8 +189,8 @@ export default{
                url: '/case/maze-gen',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
-               description: '?' 
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
+               description: 'Maze generator using the class-based box registration and the p5 library.' 
             },
             { 
                id: 'multiperceptron',
@@ -199,7 +199,7 @@ export default{
                url: '/case/multiperceptron',
                typeUrl: 'internal',
                stack: ['vue', 'js'],
-               publishedStatus: { status: 'Updating', bgColor: 'warning', published: false },
+               publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
                description: '?' 
             },
             { 
@@ -356,7 +356,7 @@ export default{
                id: 'plate_detection_and_recognition_web',
                name: 'Plate detection and recognition web',
                lang: 'Python',
-               url: 'https://plates.datahome.dev',
+               url: 'https://plates.diez.dev',
                typeUrl: 'external',
                stack: ['flask', 'python'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
@@ -366,7 +366,7 @@ export default{
                id: 'single_sign_on_frontend',
                name: 'Single sign on',
                lang: 'Javascript',
-               url: 'https://datahome.dev',
+               url: 'https://sso.diez.dev',
                typeUrl: 'external',
                stack: ['js', 'vue'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
@@ -376,7 +376,7 @@ export default{
                id: 'single_sign_on_backend',
                name: 'Single sign on',
                lang: 'Elixir',
-               url: 'https://datahome.dev',
+               url: 'https://sso.diez.dev',
                typeUrl: 'external',
                stack: ['elixir', 'phoenix'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
