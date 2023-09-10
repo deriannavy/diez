@@ -200,7 +200,7 @@ export default{
                typeUrl: 'internal',
                stack: ['vue', 'js'],
                publishedStatus: { status: 'Published', bgColor: 'primary', published: true },
-               description: '?' 
+               description: '...' 
             },
             { 
                id: 'neuro_flappy',
