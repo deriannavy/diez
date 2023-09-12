@@ -1,2 +1,9 @@
 
-export default class MultiperceptronNeuralNetwork {}
+export default class MultiperceptronNeuralNetwork {
+
+
+	constructor(){
+
+	}
+
+}
