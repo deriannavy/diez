@@ -1,4 +1,16 @@
 import MatrixNeuralNetwork from '@/classes/MatrixNeuralNetwork.js';
+import ActivationFunctionNeuralNetwork from '@/classes/ActivationFunctionNeuralNetwork.js';
+
+
+let sigmoid = new ActivationFunctionNeuralNetwork(
+  x => 1 / (1 + Math.exp(-x)),
+  y => y * (1 - y)
+);
+
+let tanh = new ActivationFunctionNeuralNetwork(
+  x => Math.tanh(x),
+  y => 1 - (y * y)
+);
 
 
 export default class MultiperceptronNeuralNetwork {
