@@ -1,3 +1,5 @@
+import MatrixNeuralNetwork from '@/classes/MatrixNeuralNetwork.js';
+
 
 export default class MultiperceptronNeuralNetwork {
 
