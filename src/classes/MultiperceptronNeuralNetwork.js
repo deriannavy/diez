@@ -1,3 +1,17 @@
+import MatrixNeuralNetwork from '@/classes/MatrixNeuralNetwork.js';
+import ActivationFunctionNeuralNetwork from '@/classes/ActivationFunctionNeuralNetwork.js';
+
+
+let sigmoid = new ActivationFunctionNeuralNetwork(
+  x => 1 / (1 + Math.exp(-x)),
+  y => y * (1 - y)
+);
+
+let tanh = new ActivationFunctionNeuralNetwork(
+  x => Math.tanh(x),
+  y => 1 - (y * y)
+);
+
 
 export default class MultiperceptronNeuralNetwork {
 
@@ -36,6 +50,24 @@ export default class MultiperceptronNeuralNetwork {
 		this.setLearningRate();
 		this.setActivationFunction();
 
+	}
+
+	predict(input_array) {
+
+		// Generating the Hidden Outputs
+		let inputs = Matrix.fromArray(input_array);
+		let hidden = Matrix.multiply(this.weights_ih, inputs);
+		hidden.add(this.bias_h);
+		// activation function!
+		hidden.map(this.activation_function.func);
+
+		// Generating the output's output!
+		let output = Matrix.multiply(this.weights_ho, hidden);
+		output.add(this.bias_o);
+		output.map(this.activation_function.func);
+
+		// Sending back to the caller!
+		return output.toArray();
 	}
 
 }
