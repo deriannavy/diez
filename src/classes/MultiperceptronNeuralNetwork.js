@@ -52,4 +52,22 @@ export default class MultiperceptronNeuralNetwork {
 
 	}
 
+	predict(input_array) {
+
+		// Generating the Hidden Outputs
+		let inputs = Matrix.fromArray(input_array);
+		let hidden = Matrix.multiply(this.weights_ih, inputs);
+		hidden.add(this.bias_h);
+		// activation function!
+		hidden.map(this.activation_function.func);
+
+		// Generating the output's output!
+		let output = Matrix.multiply(this.weights_ho, hidden);
+		output.add(this.bias_o);
+		output.map(this.activation_function.func);
+
+		// Sending back to the caller!
+		return output.toArray();
+	}
+
 }
