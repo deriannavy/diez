@@ -30,3 +30,8 @@ import p5 from 'p5';
 // Classes
 import MultiperceptronNeuralNetwork from '@/classes/MultiperceptronNeuralNetwork.js';
 </script>
+<script>
+export default{
+	
+}
+</script>
