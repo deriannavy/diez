@@ -14,7 +14,6 @@
 			<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Multiperceptron</h1>	
 			
 			<p class="col col-12">...</p>
-			<!-- <p class="col col-12">Maze generator using the class-based box registration and the p5 library.</p> -->
 
 		</div>			
 	</section>
@@ -24,3 +23,15 @@
 	</section>
 </main>	
 </template>
+
+<script setup>
+// Libs
+import p5 from 'p5';
+// Classes
+import MultiperceptronNeuralNetwork from '@/classes/MultiperceptronNeuralNetwork.js';
+</script>
+<script>
+export default{
+	
+}
+</script>
