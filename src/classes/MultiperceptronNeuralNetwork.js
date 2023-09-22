@@ -1,5 +1,5 @@
-import MatrixNeuralNetwork from '@/classes/MatrixNeuralNetwork.js';
-import ActivationFunctionNeuralNetwork from '@/classes/ActivationFunctionNeuralNetwork.js';
+import MultiperceptronNeuralNetwork from '@/classes/MultiperceptronMatrix.js';
+import MultiperceptronActivationFunction from '@/classes/MultiperceptronActivationFunction.js';
 
 
 let sigmoid = new ActivationFunctionNeuralNetwork(
