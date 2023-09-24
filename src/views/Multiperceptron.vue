@@ -35,6 +35,23 @@ export default{
 	mounted(){
 
 		this.dtP5Instance = new p5(this.fnCanvasInitializer, this.$refs.canvas);
+	},
+	methods:{
+		fnCanvasInitializer(sketch){
+
+			this.dtP5Canvas = sketch;
+
+			sketch.setup = this.fnCanvasSetUp;
+			sketch.draw = this.fnCanvasDraw;
+
+			
+		},
+		fnCanvasSetUp(){			
+
+		},
+		fnCanvasDraw(){
+
+		}
 	}
 }
 </script>
