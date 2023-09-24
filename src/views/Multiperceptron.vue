@@ -32,6 +32,9 @@ import MultiperceptronNeuralNetwork from '@/classes/MultiperceptronNeuralNetwork
 </script>
 <script>
 export default{
-	
+	mounted(){
+
+		this.dtP5Instance = new p5(this.fnCanvasInitializer, this.$refs.canvas);
+	}
 }
 </script>
