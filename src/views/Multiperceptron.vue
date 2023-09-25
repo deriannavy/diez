@@ -48,8 +48,27 @@ export default{
 		},
 		fnCanvasSetUp(){			
 
+			createCanvas(600, 300);
+			noLoop();
+		  
+			brain = new NeuralNetwork(3, 3, 2);
+
+			for (let i = 0; i < 10000; i++) {
+
+				let r = random(255), g = random(255), b = random(255),
+					 targets = trainColor(r, g, b),
+					 inputs = [r / 255, b / 255, g / 255];
+		  
+				brain.train(inputs, targets);
+		    
+		  }
+		  
+		 	this.fnPickColor();
 		},
 		fnCanvasDraw(){
+
+		},
+		fnPickColor(){
 
 		}
 	}
