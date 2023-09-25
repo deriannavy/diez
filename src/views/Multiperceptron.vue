@@ -48,20 +48,25 @@ export default{
 		},
 		fnCanvasSetUp(){			
 
-			createCanvas(600, 300);
-			noLoop();
-		  
-			brain = new NeuralNetwork(3, 3, 2);
+			let containterWidth =  this.$refs.container.clientWidth,
+				 computedStyle = getComputedStyle(this.$refs.container);
+				 
+			let canvasWidth = containterWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
 
-			for (let i = 0; i < 10000; i++) {
-
-				let r = random(255), g = random(255), b = random(255),
-					 targets = trainColor(r, g, b),
-					 inputs = [r / 255, b / 255, g / 255];
+			this.dtP5Canvas.createCanvas( canvasWidth, window.innerHeight / 2 );
+			this.dtP5Canvas.noLoop();
 		  
-				brain.train(inputs, targets);
+		// 	brain = new NeuralNetwork(3, 3, 2);
+
+		// 	for (let i = 0; i < 10000; i++) {
+
+		// 		let r = random(255), g = random(255), b = random(255),
+		// 			 targets = trainColor(r, g, b),
+		// 			 inputs = [r / 255, b / 255, g / 255];
+		  
+		// 		brain.train(inputs, targets);
 		    
-		  }
+		  // }
 		  
 		 	this.fnPickColor();
 		},
