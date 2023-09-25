@@ -56,17 +56,19 @@ export default{
 			this.dtP5Canvas.createCanvas( canvasWidth, window.innerHeight / 2 );
 			this.dtP5Canvas.noLoop();
 		  
-		// 	brain = new NeuralNetwork(3, 3, 2);
+			let brain = new MultiperceptronNeuralNetwork(3, 3, 2);
 
-		// 	for (let i = 0; i < 10000; i++) {
+			for (let i = 0; i < 10000; i++) {
 
-		// 		let r = random(255), g = random(255), b = random(255),
-		// 			 targets = trainColor(r, g, b),
-		// 			 inputs = [r / 255, b / 255, g / 255];
-		  
-		// 		brain.train(inputs, targets);
-		    
-		  // }
+				let r = this.p5Instance.random(255), 
+					 g = this.p5Instance.random(255), 
+					 b = this.p5Instance.random(255),
+					 targets = trainColor(r, g, b),
+					 inputs = [r / 255, b / 255, g / 255];
+
+				brain.train(inputs, targets);
+
+			}
 		  
 		 	this.fnPickColor();
 		},

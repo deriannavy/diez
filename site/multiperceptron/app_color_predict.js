@@ -59,9 +59,6 @@ function setup() {
   }
   
   pickColor();
-
-
-
 }
 
 function mousePressed() {
