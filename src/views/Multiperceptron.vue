@@ -32,6 +32,52 @@ import MultiperceptronNeuralNetwork from '@/classes/MultiperceptronNeuralNetwork
 </script>
 <script>
 export default{
-	
+	mounted(){
+
+		this.dtP5Instance = new p5(this.fnCanvasInitializer, this.$refs.canvas);
+	},
+	methods:{
+		fnCanvasInitializer(sketch){
+
+			this.dtP5Canvas = sketch;
+
+			sketch.setup = this.fnCanvasSetUp;
+			sketch.draw = this.fnCanvasDraw;
+
+			
+		},
+		fnCanvasSetUp(){			
+
+			let containterWidth =  this.$refs.container.clientWidth,
+				 computedStyle = getComputedStyle(this.$refs.container);
+				 
+			let canvasWidth = containterWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
+
+			this.dtP5Canvas.createCanvas( canvasWidth, window.innerHeight / 2 );
+			this.dtP5Canvas.noLoop();
+		  
+			let brain = new MultiperceptronNeuralNetwork(3, 3, 2);
+
+			for (let i = 0; i < 10000; i++) {
+
+				let r = this.p5Instance.random(255), 
+					 g = this.p5Instance.random(255), 
+					 b = this.p5Instance.random(255),
+					 targets = trainColor(r, g, b),
+					 inputs = [r / 255, b / 255, g / 255];
+
+				brain.train(inputs, targets);
+
+			}
+		  
+		 	this.fnPickColor();
+		},
+		fnCanvasDraw(){
+
+		},
+		fnPickColor(){
+
+		}
+	}
 }
 </script>
