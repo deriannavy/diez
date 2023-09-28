@@ -73,7 +73,31 @@ export default{
 		 	this.fnPickColor();
 		},
 		fnCanvasDraw(){
+			background(r,g,b);
+			 strokeWeight(2);
+			 stroke(255);
+			 line(width / 2, 0, width / 2, height );
 
+			 textSize(50);
+			 noStroke();
+			 fill(0);
+			 textAlign(CENTER, CENTER);
+			 textFont('bold');
+			 text('Back', 150, 150);
+			 fill(255);
+			 textFont('bold');
+			 text('White', 450, 150);
+
+			 let which = colorPredictor(r,g,b);
+			 console.log(trainColor(r, g, b));
+
+			 if (which == 'Dark'){
+			   fill(0);
+			   ellipse(150, 200, 20, 20);
+			 } else {
+			   fill(255);
+			   ellipse(450, 200, 20, 20);
+			 }
 		},
 		fnPickColor(){
 
