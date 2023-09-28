@@ -36,6 +36,13 @@ export default{
 
 		this.dtP5Instance = new p5(this.fnCanvasInitializer, this.$refs.canvas);
 	},
+	data(){
+		return{
+			dtRed: null,
+			dtGreen: null,
+			dtBlue: null
+		}
+	},
 	methods:{
 		fnCanvasInitializer(sketch){
 
@@ -60,9 +67,9 @@ export default{
 
 			for (let i = 0; i < 10000; i++) {
 
-				let r = this.p5Instance.random(255), 
-					 g = this.p5Instance.random(255), 
-					 b = this.p5Instance.random(255),
+				let this.dtRed = this.p5Instance.random(255), 
+					 this.dtGreen = this.p5Instance.random(255), 
+					 this.dtBlue = this.p5Instance.random(255),
 					 targets = trainColor(r, g, b),
 					 inputs = [r / 255, b / 255, g / 255];
 
@@ -73,31 +80,31 @@ export default{
 		 	this.fnPickColor();
 		},
 		fnCanvasDraw(){
-			background(r,g,b);
-			 strokeWeight(2);
-			 stroke(255);
-			 line(width / 2, 0, width / 2, height );
+			// background(r,g,b);
+			//  strokeWeight(2);
+			//  stroke(255);
+			//  line(width / 2, 0, width / 2, height );
 
-			 textSize(50);
-			 noStroke();
-			 fill(0);
-			 textAlign(CENTER, CENTER);
-			 textFont('bold');
-			 text('Back', 150, 150);
-			 fill(255);
-			 textFont('bold');
-			 text('White', 450, 150);
+			//  textSize(50);
+			//  noStroke();
+			//  fill(0);
+			//  textAlign(CENTER, CENTER);
+			//  textFont('bold');
+			//  text('Back', 150, 150);
+			//  fill(255);
+			//  textFont('bold');
+			//  text('White', 450, 150);
 
-			 let which = colorPredictor(r,g,b);
-			 console.log(trainColor(r, g, b));
+			//  let which = colorPredictor(r,g,b);
+			//  console.log(trainColor(r, g, b));
 
-			 if (which == 'Dark'){
-			   fill(0);
-			   ellipse(150, 200, 20, 20);
-			 } else {
-			   fill(255);
-			   ellipse(450, 200, 20, 20);
-			 }
+			//  if (which == 'Dark'){
+			//    fill(0);
+			//    ellipse(150, 200, 20, 20);
+			//  } else {
+			//    fill(255);
+			//    ellipse(450, 200, 20, 20);
+			//  }
 		},
 		fnPickColor(){
 
