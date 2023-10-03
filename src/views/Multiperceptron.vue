@@ -80,7 +80,7 @@ export default{
 		 	this.fnPickColor();
 		},
 		fnCanvasDraw(){
-			// background(r,g,b);
+			this.dtP5Instance.background(this.dtRed,this.dtGreen,this.dtBlue);
 			//  strokeWeight(2);
 			//  stroke(255);
 			//  line(width / 2, 0, width / 2, height );
