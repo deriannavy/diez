@@ -70,8 +70,8 @@ export default{
 				let this.dtRed = this.p5Instance.random(255), 
 					 this.dtGreen = this.p5Instance.random(255), 
 					 this.dtBlue = this.p5Instance.random(255),
-					 targets = trainColor(r, g, b),
-					 inputs = [r / 255, b / 255, g / 255];
+					 targets = trainColor(this.dtRed, this.dtGreen, this.dtBlue),
+					 inputs = [this.dtRed / 255, this.dtBlue / 255, this.dtGreen / 255];
 
 				brain.train(inputs, targets);
 
@@ -80,7 +80,7 @@ export default{
 		 	this.fnPickColor();
 		},
 		fnCanvasDraw(){
-			// background(r,g,b);
+			this.dtP5Instance.background(this.dtRed,this.dtGreen,this.dtBlue);
 			//  strokeWeight(2);
 			//  stroke(255);
 			//  line(width / 2, 0, width / 2, height );
