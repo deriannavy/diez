@@ -80,10 +80,16 @@ export default{
 		 	this.fnPickColor();
 		},
 		fnCanvasDraw(){
+
 			this.dtP5Instance.background(this.dtRed,this.dtGreen,this.dtBlue);
-			//  strokeWeight(2);
-			//  stroke(255);
-			//  line(width / 2, 0, width / 2, height );
+			this.dtP5Instance.strokeWeight(2);
+			this.dtP5Instance.stroke(255);
+			// this.dtP5Instance.line(
+			// 	width / 2, 
+			// 	0, 
+			// 	width / 2, 
+			// 	height 
+			// );
 
 			//  textSize(50);
 			//  noStroke();
