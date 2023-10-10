@@ -40,7 +40,10 @@ export default{
 		return{
 			dtRed: null,
 			dtGreen: null,
-			dtBlue: null
+			dtBlue: null,
+
+			dtCanvasWidth: null,
+			dtCanvasHeight: null
 		}
 	},
 	methods:{
@@ -58,9 +61,10 @@ export default{
 			let containterWidth =  this.$refs.container.clientWidth,
 				 computedStyle = getComputedStyle(this.$refs.container);
 				 
-			let canvasWidth = containterWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
+			this.dtCanvasWidth = containterWidth -= parseFloat(computedStyle.paddingLeft) + parseFloat(computedStyle.paddingRight);
+			this.dtCanvasHeight = window.innerHeight / 2;
 
-			this.dtP5Canvas.createCanvas( canvasWidth, window.innerHeight / 2 );
+			this.dtP5Canvas.createCanvas( this.dtCanvasWidth,  this.dtCanvasHeight );
 			this.dtP5Canvas.noLoop();
 		  
 			let brain = new MultiperceptronNeuralNetwork(3, 3, 2);
@@ -84,12 +88,12 @@ export default{
 			this.dtP5Instance.background(this.dtRed,this.dtGreen,this.dtBlue);
 			this.dtP5Instance.strokeWeight(2);
 			this.dtP5Instance.stroke(255);
-			this.dtP5Instance.line(
-				width / 2, 
-				0, 
-				width / 2, 
-				height 
-			);
+			// this.dtP5Instance.line(
+			// 	width / 2, 
+			// 	0, 
+			// 	width / 2, 
+			// 	height 
+			// );
 
 			//  textSize(50);
 			//  noStroke();
