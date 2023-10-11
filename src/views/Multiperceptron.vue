@@ -88,12 +88,12 @@ export default{
 			this.dtP5Instance.background(this.dtRed,this.dtGreen,this.dtBlue);
 			this.dtP5Instance.strokeWeight(2);
 			this.dtP5Instance.stroke(255);
-			// this.dtP5Instance.line(
-			// 	width / 2, 
-			// 	0, 
-			// 	width / 2, 
-			// 	height 
-			// );
+			this.dtP5Instance.line(
+				this.dtCanvasWidth / 2, 
+				0, 
+				this.dtCanvasWidth / 2, 
+				this.dtCanvasHeight 
+			);
 
 			//  textSize(50);
 			//  noStroke();
