@@ -95,7 +95,7 @@ export default{
 				this.dtCanvasHeight 
 			);
 
-			//  textSize(50);
+			this.dtP5Instance.textSize(50);
 			//  noStroke();
 			//  fill(0);
 			//  textAlign(CENTER, CENTER);
