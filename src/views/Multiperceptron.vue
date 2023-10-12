@@ -96,7 +96,7 @@ export default{
 			);
 
 			this.dtP5Instance.textSize(50);
-			//  noStroke();
+			this.dtP5Instance.noStroke();
 			//  fill(0);
 			//  textAlign(CENTER, CENTER);
 			//  textFont('bold');
