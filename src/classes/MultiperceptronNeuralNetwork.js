@@ -1,4 +1,4 @@
-import MultiperceptronNeuralNetwork from '@/classes/MultiperceptronMatrix.js';
+import MultiperceptronMatrix from '@/classes/MultiperceptronMatrix.js';
 import MultiperceptronActivationFunction from '@/classes/MultiperceptronActivationFunction.js';
 
 
