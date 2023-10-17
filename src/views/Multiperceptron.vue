@@ -71,7 +71,7 @@ export default{
 
 			for (let i = 0; i < 10000; i++) {
 
-				let this.dtRed = this.p5Instance.random(255), 
+					 this.dtRed = this.p5Instance.random(255), 
 					 this.dtGreen = this.p5Instance.random(255), 
 					 this.dtBlue = this.p5Instance.random(255),
 					 targets = trainColor(this.dtRed, this.dtGreen, this.dtBlue),
@@ -97,13 +97,16 @@ export default{
 
 			this.dtP5Instance.textSize(50);
 			this.dtP5Instance.noStroke();
-			//  fill(0);
-			//  textAlign(CENTER, CENTER);
-			//  textFont('bold');
-			//  text('Back', 150, 150);
-			//  fill(255);
-			//  textFont('bold');
-			//  text('White', 450, 150);
+			this.dtP5Instance.fill(0);
+			this.dtP5Instance.textAlign(
+				this.dtP5Instance.CENTER, 
+				this.dtP5Instance.CENTER
+			);
+			this.dtP5Instance.textFont('bold');
+			this.dtP5Instance.text('Back', 150, 150);
+			this.dtP5Instance.fill(255);
+			this.dtP5Instance.textFont('bold');
+			this.dtP5Instance.text('White', 450, 150);
 
 			//  let which = colorPredictor(r,g,b);
 			//  console.log(trainColor(r, g, b));
