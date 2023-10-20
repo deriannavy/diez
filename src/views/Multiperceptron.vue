@@ -102,11 +102,11 @@ export default{
 				this.dtP5Instance.CENTER, 
 				this.dtP5Instance.CENTER
 			);
-			// this.dtP5Instance.textFont('bold');
-			// this.dtP5Instance.text('Back', 150, 150);
-			// this.dtP5Instance.fill(255);
-			// this.dtP5Instance.textFont('bold');
-			// this.dtP5Instance.text('White', 450, 150);
+			this.dtP5Instance.textFont('bold');
+			this.dtP5Instance.text('Back', 150, 150);
+			this.dtP5Instance.fill(255);
+			this.dtP5Instance.textFont('bold');
+			this.dtP5Instance.text('White', 450, 150);
 
 			//  let which = colorPredictor(r,g,b);
 			//  console.log(trainColor(r, g, b));
