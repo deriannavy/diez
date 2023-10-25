@@ -108,7 +108,7 @@ export default{
 			this.dtP5Instance.textFont('bold');
 			this.dtP5Instance.text('White', 450, 150);
 
-			 let which = colorPredictor(r,g,b);
+			 let which = colorPredictor(this.dtRed, this.dtGreen, this.dtBlue);
 			 console.log(trainColor(r, g, b));
 
 			 if (which == 'Dark'){
