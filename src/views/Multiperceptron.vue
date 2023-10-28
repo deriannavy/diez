@@ -112,11 +112,11 @@ export default{
 			 console.log(trainColor(this.dtRed, this.dtGreen, this.dtBlue));
 
 			 if (which == 'Dark'){
-			   fill(0);
-			   ellipse(150, 200, 20, 20);
+			   this.dtP5Instance.fill(0);
+			   this.dtP5Instance.ellipse(150, 200, 20, 20);
 			 } else {
-			   fill(255);
-			   ellipse(450, 200, 20, 20);
+			   this.dtP5Instance.fill(255);
+			   this.dtP5Instance.ellipse(450, 200, 20, 20);
 			 }
 		},
 		fnPickColor(){
