@@ -74,8 +74,8 @@ export default{
 					 this.dtRed = this.p5Instance.random(255), 
 					 this.dtGreen = this.p5Instance.random(255), 
 					 this.dtBlue = this.p5Instance.random(255),
-					 targets = trainColor(this.dtRed, this.dtGreen, this.dtBlue),
-					 inputs = [this.dtRed / 255, this.dtBlue / 255, this.dtGreen / 255];
+					 		targets = this.trainColor(this.dtRed, this.dtGreen, this.dtBlue),
+					 		inputs = [this.dtRed / 255, this.dtBlue / 255, this.dtGreen / 255];
 
 				brain.train(inputs, targets);
 
@@ -109,7 +109,7 @@ export default{
 			this.dtP5Instance.text('White', 450, 150);
 
 			 let which = colorPredictor(this.dtRed, this.dtGreen, this.dtBlue);
-			 console.log(trainColor(this.dtRed, this.dtGreen, this.dtBlue));
+			 console.log(this.trainColor(this.dtRed, this.dtGreen, this.dtBlue));
 
 			 if (which == 'Dark'){
 			   this.dtP5Instance.fill(0);
@@ -121,6 +121,13 @@ export default{
 		},
 		fnPickColor(){
 
+		},
+		fnTrainColor(r, g, b) {
+		  	if(r + b + g > 300){
+				return [1,0];
+		 	} else {
+		   	return [0,1];
+		 	}
 		}
 	}
 }
