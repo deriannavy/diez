@@ -108,16 +108,16 @@ export default{
 			this.dtP5Instance.textFont('bold');
 			this.dtP5Instance.text('White', 450, 150);
 
-			 // let which = colorPredictor(this.dtRed, this.dtGreen, this.dtBlue);
-			 // console.log(this.trainColor(this.dtRed, this.dtGreen, this.dtBlue));
+			 let which = colorPredictor(this.dtRed, this.dtGreen, this.dtBlue);
+			 console.log(this.trainColor(this.dtRed, this.dtGreen, this.dtBlue));
 
-			 // if (which == 'Dark'){
-			 //   this.dtP5Instance.fill(0);
-			 //   this.dtP5Instance.ellipse(150, 200, 20, 20);
-			 // } else {
-			 //   this.dtP5Instance.fill(255);
-			 //   this.dtP5Instance.ellipse(450, 200, 20, 20);
-			 // }
+			 if (which == 'Dark'){
+			   this.dtP5Instance.fill(0);
+			   this.dtP5Instance.ellipse(150, 200, 20, 20);
+			 } else {
+			   this.dtP5Instance.fill(255);
+			   this.dtP5Instance.ellipse(450, 200, 20, 20);
+			 }
 		},
 		fnPickColor(){
 
