@@ -120,7 +120,10 @@ export default{
 			 }
 		},
 		fnPickColor(){
-
+			r = random(255),
+			  g = random(255),
+			  b = random(255);
+			  redraw();
 		},
 		fnTrainColor(r, g, b) {
 		  	if(r + b + g > 300){
