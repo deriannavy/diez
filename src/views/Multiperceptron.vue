@@ -120,10 +120,10 @@ export default{
 			 }
 		},
 		fnPickColor(){
-			// this.dtRed = random(255);
-			// this.dtGreen = random(255);
-			// this.dtBlue = random(255);
-			// this.dtP5Instance.redraw();
+			this.dtRed = random(255);
+			this.dtGreen = random(255);
+			this.dtBlue = random(255);
+			this.dtP5Instance.redraw();
 		},
 		fnTrainColor(r, g, b) {
 		  	if(r + b + g > 300){
