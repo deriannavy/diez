@@ -13,7 +13,7 @@
 
 			<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Multiperceptron</h1>	
 			
-			<p class="col col-12">...</p>
+			<p class="col col-12">This is an example of multiperceptron</p>
 
 		</div>			
 	</section>
@@ -54,9 +54,8 @@ export default{
 			sketch.setup = this.fnCanvasSetUp;
 			sketch.draw = this.fnCanvasDraw;
 
-			
 		},
-		fnCanvasSetUp(){			
+		fnCanvasSetUp(){
 
 			let containterWidth =  this.$refs.container.clientWidth,
 				 computedStyle = getComputedStyle(this.$refs.container);
@@ -108,19 +107,22 @@ export default{
 			this.dtP5Instance.textFont('bold');
 			this.dtP5Instance.text('White', 450, 150);
 
-			 // let which = colorPredictor(this.dtRed, this.dtGreen, this.dtBlue);
-			 // console.log(this.trainColor(this.dtRed, this.dtGreen, this.dtBlue));
+			 let which = colorPredictor(this.dtRed, this.dtGreen, this.dtBlue);
+			 console.log(this.trainColor(this.dtRed, this.dtGreen, this.dtBlue));
 
-			 // if (which == 'Dark'){
-			 //   this.dtP5Instance.fill(0);
-			 //   this.dtP5Instance.ellipse(150, 200, 20, 20);
-			 // } else {
-			 //   this.dtP5Instance.fill(255);
-			 //   this.dtP5Instance.ellipse(450, 200, 20, 20);
-			 // }
+			 if (which == 'Dark'){
+			   this.dtP5Instance.fill(0);
+			   this.dtP5Instance.ellipse(150, 200, 20, 20);
+			 } else {
+			   this.dtP5Instance.fill(255);
+			   this.dtP5Instance.ellipse(450, 200, 20, 20);
+			 }
 		},
 		fnPickColor(){
-
+			this.dtRed = random(255);
+			this.dtGreen = random(255);
+			this.dtBlue = random(255);
+			this.dtP5Instance.redraw();
 		},
 		fnTrainColor(r, g, b) {
 		  	if(r + b + g > 300){
