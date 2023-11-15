@@ -13,7 +13,7 @@
 
 			<h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Multiperceptron</h1>	
 			
-			<p class="col col-12">This is an example of multiperceptron</p>
+			<p class="col col-12">..</p>
 
 		</div>			
 	</section>
