@@ -1,0 +1,19 @@
+name: diez
+
+services:
+
+   frontend:
+
+      container_name: diez
+
+      build:
+         dockerfile: deployment/production/dockerfile
+         context: ../../
+         
+
+      ports:
+         - 80:80
+
+      env_file:
+         - path: .env
+           required: true
